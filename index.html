@@ -709,17 +709,38 @@
 
         /* Testimonials */
         .testimonials-container {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            overflow-x: auto;
             gap: 20px;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .testimonials-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .testimonials-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .testimonials-container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
         }
 
         .testimonial-item {
+            flex: 0 0 85%;
+            max-width: 85%;
+            scroll-snap-align: center;
             background: white;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
+            min-height: 100%;
         }
 
         .testimonial-item:hover {
@@ -734,6 +755,7 @@
             color: var(--text);
             position: relative;
             font-size: 14px;
+            min-height: 120px; /* Adjusted to fit content better */
         }
 
         .testimonial-text::before,
@@ -1204,6 +1226,11 @@
                 flex: 0 0 70%;
                 max-width: 70%;
             }
+
+            .testimonial-item {
+                flex: 0 0 70%;
+                max-width: 70%;
+            }
         }
 
         @media (min-width: 768px) {
@@ -1252,8 +1279,7 @@
                 grid-template-columns: 1fr 1fr;
             }
             
-            .skills-container,
-            .testimonials-container {
+            .skills-container {
                 grid-template-columns: 1fr 1fr;
             }
             
@@ -1263,6 +1289,11 @@
             
             .footer-container {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .testimonial-item {
+                flex: 0 0 45%;
+                max-width: 45%;
             }
         }
 
@@ -1275,8 +1306,7 @@
                 font-size: 32px;
             }
             
-            .skills-container,
-            .testimonials-container {
+            .skills-container {
                 grid-template-columns: repeat(3, 1fr);
             }
             
@@ -1301,6 +1331,11 @@
                 bottom: 0;
                 right: 0;
             }
+
+            .testimonial-item {
+                flex: 0 0 30%;
+                max-width: 30%;
+            }
         }
 
         @media (min-width: 1200px) {
@@ -1311,6 +1346,11 @@
             .profile-frame {
                 width: 350px;
                 height: 350px;
+            }
+
+            .testimonial-item {
+                flex: 0 0 23%;
+                max-width: 23%;
             }
         }
     </style>
@@ -1580,7 +1620,7 @@ Effective communication (professional writing/presentations)
                         <img src="The Indefinable.jpg" alt="TICO Certification" class="certification-img">
                         <div class="certification-content">
                             <h3 class="certification-title">The Indefinable</h3>
-                            <p class="certification-issuer"><i class="fas fa-award"></i>The Indefinable</p>
+                            <p class="certification-issuer"><i class="fas fa-award"></i>A collection of poems in Egyptian colloquial Arabic</p>
                             <p class="certification-date">published in 2021.</p>
                         </div>
                         <div class="certification-details">
@@ -1689,7 +1729,7 @@ Effective communication (professional writing/presentations)
                 </div>
                 <div class="testimonial-item">
                     <p class="testimonial-text">
-                       My name is Omar Mohamad, and I am a high school freshman at SCIS. Mr. Kerolos is my English teacher. I lived in Germany for about six years before moving to Egypt, and I have attended multiple schools in both countries. Out of the five schools I’ve been to, I have never had an English teacher as devoted and innovative as Mr. Kerolos. His creative exercises and teaching methods keep us engaged and make learning both effective and memorable. Over the past two years that he has been my teacher, my English skills have improved more than they ever did elsewhere. I would like to personally thank him for his consistent dedication and effort toward his students.   </p>
+                       My name is Omar Mohamad, and I am a high school freshman at SCIS. Mr. Kerolos is my English teacher. I lived in Germany for about six years before moving to Egypt, and I have attended multiple schools in both countries. Out of the five schools I've been to, I have never had an English teacher as devoted and innovative as Mr. Kerolos. His creative exercises and teaching methods keep us engaged and make learning both effective and memorable. Over the past two years that he has been my teacher, my English skills have improved more than they ever did elsewhere. I would like to personally thank him for his consistent dedication and effort toward his students.   </p>
                     <div class="testimonial-author">
                         <img src="Omar Mohamad.jpg" alt="Mohamed" class="author-img">
                         <div class="author-info">
