@@ -303,12 +303,11 @@
             overflow: hidden;
             position: relative;
             z-index: 2;
-            transform: rotate(-5deg);
             transition: all 0.5s ease;
         }
 
         .profile-frame:hover {
-            transform: rotate(0deg) scale(1.05);
+            transform: scale(1.05);
         }
 
         .profile-img {
@@ -780,6 +779,65 @@
             font-size: 12px;
             color: var(--text);
             opacity: 0.7;
+        }
+
+        /* Courses Section */
+        .courses-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .course-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .course-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .course-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .course-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text);
+            opacity: 0.8;
+        }
+
+        .course-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: var(--primary);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .course-btn:hover {
+            background: var(--secondary);
+            color: var(--dark);
         }
 
         /* Contact Section */
@@ -1287,7 +1345,9 @@
                 <a href="#certifications" class="nav-link">Certifications</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#courses" class="nav-link">Courses</a>
                 <a href="#contact" class="nav-link">Contact</a>
+                <a href="#" class="nav-link" id="downloadCvNav"><i class="fas fa-download"></i> CV</a>
             </nav>
         </header>
         
@@ -1302,8 +1362,8 @@
                     <a href="#contact" class="btn btn-primary">
                         <i class="fas fa-calendar-check"></i> Book a Lesson
                     </a>
-                    <a href="#" class="btn btn-secondary" id="downloadCv">
-                        <i class="fas fa-download"></i> Download CV
+                    <a href="#courses" class="btn btn-secondary">
+                        <i class="fas fa-book"></i> View Courses
                     </a>
                 </div>
             </div>
@@ -1825,20 +1885,20 @@ Effective communication (professional writing/presentations)
                 });
             }
             
-            // Download CV button
-            const downloadCv = document.getElementById('downloadCv');
-            if (downloadCv) {
-                downloadCv.addEventListener('click', function(e) {
+            // Download CV button in navigation
+            const downloadCvNav = document.getElementById('downloadCvNav');
+            if (downloadCvNav) {
+                downloadCvNav.addEventListener('click', function(e) {
                     e.preventDefault();
                     
                     // Change button text
-                    const originalText = downloadCv.innerHTML;
-                    downloadCv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing CV...';
+                    const originalText = downloadCvNav.innerHTML;
+                    downloadCvNav.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing...';
                     
                     // Simulate download (in a real scenario, this would link to your CV file)
                     setTimeout(() => {
                         alert('Your download will start shortly. Thank you for your interest!');
-                        downloadCv.innerHTML = originalText;
+                        downloadCvNav.innerHTML = originalText;
                         
                         // Create a temporary download link
                         const link = document.createElement('a');
