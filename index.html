@@ -707,7 +707,11 @@
             margin-left: -1em;
         }
 
-        /* Testimonials */
+        /* Updated Testimonials Section */
+        .testimonials-section {
+            margin-bottom: 50px;
+        }
+
         .testimonials-container {
             display: flex;
             overflow-x: auto;
@@ -715,6 +719,8 @@
             padding: 20px 0;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) #f1f1f1;
         }
 
         .testimonials-container::-webkit-scrollbar {
@@ -731,35 +737,127 @@
             border-radius: 10px;
         }
 
-        .testimonial-item {
-            flex: 0 0 85%;
-            max-width: 85%;
-            scroll-snap-align: center;
+        .testimonial-card {
+            flex: 0 0 280px;
+            scroll-snap-align: start;
             background: white;
-            padding: 20px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
-            min-height: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
         }
 
-        .testimonial-item:hover {
+        .testimonial-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .testimonial-text {
-            font-style: italic;
-            line-height: 1.7;
-            margin-bottom: 15px;
-            color: var(--text);
+        .testimonial-preview {
+            padding: 20px;
             position: relative;
-            font-size: 14px;
-            min-height: 120px; /* Adjusted to fit content better */
         }
 
-        .testimonial-text::before,
-        .testimonial-text::after {
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid var(--secondary);
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: var(--dark);
+        }
+
+        .author-location {
+            font-size: 12px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .author-location i {
+            margin-right: 5px;
+        }
+
+        .testimonial-excerpt {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .testimonial-excerpt::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), white);
+        }
+
+        .read-more {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            z-index: 2;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-full {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            padding: 0 20px;
+            background: #f9f9f9;
+            position: relative;
+        }
+
+        .testimonial-full-content {
+            padding: 0 0 20px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text);
+            position: relative;
+        }
+
+        .testimonial-full-content::before,
+        .testimonial-full-content::after {
             content: '"';
             font-size: 30px;
             color: var(--primary);
@@ -767,40 +865,27 @@
             position: absolute;
         }
 
-        .testimonial-text::before {
-            top: -15px;
+        .testimonial-full-content::before {
+            top: 0;
             left: -8px;
         }
 
-        .testimonial-text::after {
-            bottom: -30px;
+        .testimonial-full-content::after {
+            bottom: -20px;
             right: -8px;
         }
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
+        .testimonial-card.active .testimonial-full {
+            max-height: 500px;
+            padding: 20px;
         }
 
-        .author-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 12px;
+        .testimonial-card.active .read-more i {
+            transform: rotate(180deg);
         }
 
-        .author-info h4 {
-            font-weight: 600;
-            margin-bottom: 3px;
-            font-size: 14px;
-        }
-
-        .author-info p {
-            font-size: 12px;
-            color: var(--text);
-            opacity: 0.7;
+        .testimonial-card.active .testimonial-excerpt {
+            display: none;
         }
 
         /* Courses Section */
@@ -920,66 +1005,6 @@
             color: var(--primary);
         }
 
-        .contact-form {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 500;
-            font-size: 14px;
-        }
-
-        .form-input,
-        .form-textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus,
-        .form-textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.1);
-        }
-
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(65, 105, 225, 0.3);
-        }
-
         /* Footer */
         .footer {
             background: var(--dark);
@@ -1041,8 +1066,7 @@
             transform: translateY(-5px);
         }
 
-        .footer-links h3,
-        .footer-newsletter h3 {
+        .footer-links h3 {
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 15px;
@@ -1050,8 +1074,7 @@
             padding-bottom: 8px;
         }
 
-        .footer-links h3::after,
-        .footer-newsletter h3::after {
+        .footer-links h3::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -1081,35 +1104,6 @@
             opacity: 1;
             color: var(--secondary);
             padding-left: 5px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            margin-bottom: 15px;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 10px 12px;
-            border: none;
-            border-radius: 5px 0 0 5px;
-            font-size: 13px;
-        }
-
-        .newsletter-btn {
-            background: var(--secondary);
-            color: var(--dark);
-            border: none;
-            padding: 0 15px;
-            border-radius: 0 5px 5px 0;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 13px;
-        }
-
-        .newsletter-btn:hover {
-            background: #ffcc00;
         }
 
         .footer-bottom {
@@ -1227,9 +1221,8 @@
                 max-width: 70%;
             }
 
-            .testimonial-item {
-                flex: 0 0 70%;
-                max-width: 70%;
+            .testimonial-card {
+                flex: 0 0 320px;
             }
         }
 
@@ -1291,9 +1284,8 @@
                 grid-template-columns: 1fr 1fr;
             }
 
-            .testimonial-item {
-                flex: 0 0 45%;
-                max-width: 45%;
+            .testimonial-card {
+                flex: 0 0 280px;
             }
         }
 
@@ -1332,9 +1324,8 @@
                 right: 0;
             }
 
-            .testimonial-item {
-                flex: 0 0 30%;
-                max-width: 30%;
+            .testimonial-card {
+                flex: 0 0 260px;
             }
         }
 
@@ -1348,9 +1339,8 @@
                 height: 350px;
             }
 
-            .testimonial-item {
-                flex: 0 0 23%;
-                max-width: 23%;
+            .testimonial-card {
+                flex: 0 0 300px;
             }
         }
     </style>
@@ -1401,9 +1391,6 @@
                 <div class="hero-btns">
                     <a href="#contact" class="btn btn-primary">
                         <i class="fas fa-calendar-check"></i> Book a Lesson
-                    </a>
-                    <a href="#courses" class="btn btn-secondary">
-                        <i class="fas fa-book"></i> View Courses
                     </a>
                 </div>
             </div>
@@ -1694,47 +1681,86 @@ Effective communication (professional writing/presentations)
                 <h2 class="section-title">Student Testimonials</h2>
             </div>
             <div class="testimonials-container">
-                <div class="testimonial-item">
-                    <p class="testimonial-text">
-                        My name is Emma, and I'm an Italian student lucky enough to have Mr. Kerolos as my teacher. His lessons are anything but boring—he brings grammar and writing to life with interactive activities that actually make learning enjoyable (yes, even grammar!). Literature classes are never dull either; we dive into lively debates and discussions that keep everyone on their toes. Oh, and as a bonus, he speaks with a British accent, which somehow makes everything sound a bit more sophisticated!</p>
-                    <div class="testimonial-author">
-                        <img src="Emma Gardella.jpg" alt="Emma Gardella" class="author-img">
-                        <div class="author-info">
-                            <h4>Emma Gardella</h4>
-                            <p>From Italy</p>
+                <div class="testimonial-card">
+                    <div class="testimonial-preview">
+                        <div class="testimonial-author">
+                            <img src="Emma Gardella.jpg" alt="Emma Gardella" class="author-img">
+                            <div class="author-info">
+                                <h4 class="author-name">Emma Gardella</h4>
+                                <p class="author-location"><i class="fas fa-map-marker-alt"></i> Italy</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-excerpt">
+                            My name is Emma, and I'm an Italian student lucky enough to have Mr. Kerolos as my teacher. His lessons are anything but boring—he brings grammar and writing to life with interactive activities that actually make learning enjoyable (yes, even grammar!). Literature classes are never dull either; we dive into lively debates and discussions that keep everyone on their toes. Oh, and as a bonus, he speaks with a British accent, which somehow makes everything sound a bit more sophisticated!
+                        </div>
+                        <a class="read-more">Read More <i class="fas fa-chevron-down"></i></a>
+                    </div>
+                    <div class="testimonial-full">
+                        <div class="testimonial-full-content">
+                            My name is Emma, and I'm an Italian student lucky enough to have Mr. Kerolos as my teacher. His lessons are anything but boring—he brings grammar and writing to life with interactive activities that actually make learning enjoyable (yes, even grammar!). Literature classes are never dull either; we dive into lively debates and discussions that keep everyone on their toes. Oh, and as a bonus, he speaks with a British accent, which somehow makes everything sound a bit more sophisticated!
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-item">
-                    <p class="testimonial-text">
-                        My name is Patrick, and I am a Canadian student. I have been studying under the guidance of Mr. Kerolos for over three years, and during this time, I've witnessed significant growth in my English skills, particularly in reading and writing. When I first left Canada to move to Egypt, I was concerned that my English might decline. However, the opposite proved true—my English has improved in many ways. I'm truly grateful to Mr. Kerolos for his continuous support and for helping me feel welcomed and confident in my learning journey.                    </p>
-                    <div class="testimonial-author">
-                        <img src="Patrick Jean.jpg" alt="Patrick Jean" class="author-img">
-                        <div class="author-info">
-                            <h4>Patrick Jean</h4>
-                            <p>From Canada</p>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-preview">
+                        <div class="testimonial-author">
+                            <img src="Patrick Jean.jpg" alt="Patrick Jean" class="author-img">
+                            <div class="author-info">
+                                <h4 class="author-name">Patrick Jean</h4>
+                                <p class="author-location"><i class="fas fa-map-marker-alt"></i> Canada</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-excerpt">
+                            My name is Patrick, and I am a Canadian student. I have been studying under the guidance of Mr. Kerolos for over three years, and during this time, I've witnessed significant growth in my English skills, particularly in reading and writing. When I first left Canada to move to Egypt, I was concerned that my English might decline. However, the opposite proved true—my English has improved in many ways.
+                        </div>
+                        <a class="read-more">Read More <i class="fas fa-chevron-down"></i></a>
+                    </div>
+                    <div class="testimonial-full">
+                        <div class="testimonial-full-content">
+                            My name is Patrick, and I am a Canadian student. I have been studying under the guidance of Mr. Kerolos for over three years, and during this time, I've witnessed significant growth in my English skills, particularly in reading and writing. When I first left Canada to move to Egypt, I was concerned that my English might decline. However, the opposite proved true—my English has improved in many ways. I'm truly grateful to Mr. Kerolos for his continuous support and for helping me feel welcomed and confident in my learning journey.
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-item">
-                    <p class="testimonial-text">
-                        My name is Mohamed, and I'm an Egyptian student. Mr. Kerolos as a teacher is far better than many others I've learned from. He encourages competitions, which greatly motivates us, and he is a well-known figure in the English teaching community.   </p>
-                    <div class="testimonial-author">
-                        <img src="Mohamed.jpg" alt="Mohamed" class="author-img">
-                        <div class="author-info">
-                            <h4>Mohamed</h4>
-                            <p>From Egypt</p>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-preview">
+                        <div class="testimonial-author">
+                            <img src="Mohamed.jpg" alt="Mohamed" class="author-img">
+                            <div class="author-info">
+                                <h4 class="author-name">Mohamed</h4>
+                                <p class="author-location"><i class="fas fa-map-marker-alt"></i> Egypt</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-excerpt">
+                            My name is Mohamed, and I'm an Egyptian student. Mr. Kerolos as a teacher is far better than many others I've learned from. He encourages competitions, which greatly motivates us, and he is a well-known figure in the English teaching community.
+                        </div>
+                        <a class="read-more">Read More <i class="fas fa-chevron-down"></i></a>
+                    </div>
+                    <div class="testimonial-full">
+                        <div class="testimonial-full-content">
+                            My name is Mohamed, and I'm an Egyptian student. Mr. Kerolos as a teacher is far better than many others I've learned from. He encourages competitions, which greatly motivates us, and he is a well-known figure in the English teaching community.
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-item">
-                    <p class="testimonial-text">
-                       My name is Omar Mohamad, and I am a high school freshman at SCIS. Mr. Kerolos is my English teacher. I lived in Germany for about six years before moving to Egypt, and I have attended multiple schools in both countries. Out of the five schools I've been to, I have never had an English teacher as devoted and innovative as Mr. Kerolos. His creative exercises and teaching methods keep us engaged and make learning both effective and memorable. Over the past two years that he has been my teacher, my English skills have improved more than they ever did elsewhere. I would like to personally thank him for his consistent dedication and effort toward his students.   </p>
-                    <div class="testimonial-author">
-                        <img src="Omar Mohamad.jpg" alt="Mohamed" class="author-img">
-                        <div class="author-info">
-                            <h4>Omar Mohamad</h4>
-                            <p>From Germany</p>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-preview">
+                        <div class="testimonial-author">
+                            <img src="Omar Mohamad.jpg" alt="Omar Mohamad" class="author-img">
+                            <div class="author-info">
+                                <h4 class="author-name">Omar Mohamad</h4>
+                                <p class="author-location"><i class="fas fa-map-marker-alt"></i> Germany</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-excerpt">
+                            My name is Omar Mohamad, and I am a high school freshman at SCIS. Mr. Kerolos is my English teacher. I lived in Germany for about six years before moving to Egypt, and I have attended multiple schools in both countries. Out of the five schools I've been to, I have never had an English teacher as devoted and innovative as Mr. Kerolos.
+                        </div>
+                        <a class="read-more">Read More <i class="fas fa-chevron-down"></i></a>
+                    </div>
+                    <div class="testimonial-full">
+                        <div class="testimonial-full-content">
+                            My name is Omar Mohamad, and I am a high school freshman at SCIS. Mr. Kerolos is my English teacher. I lived in Germany for about six years before moving to Egypt, and I have attended multiple schools in both countries. Out of the five schools I've been to, I have never had an English teacher as devoted and innovative as Mr. Kerolos. His creative exercises and teaching methods keep us engaged and make learning both effective and memorable. Over the past two years that he has been my teacher, my English skills have improved more than they ever did elsewhere. I would like to personally thank him for his consistent dedication and effort toward his students.
                         </div>
                     </div>
                 </div>
@@ -1786,29 +1812,6 @@ Effective communication (professional writing/presentations)
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Your Name</label>
-                            <input type="text" id="name" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Your Email</label>
-                            <input type="email" id="email" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" id="subject" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label">Your Message</label>
-                            <textarea id="message" class="form-textarea" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
             </div>
         </section>
     </div>
@@ -1838,16 +1841,6 @@ Effective communication (professional writing/presentations)
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-            </div>
-            <div class="footer-newsletter">
-                <h3>Newsletter</h3>
-                <p>Subscribe to receive teaching tips, course updates, and special offers.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your Email" class="newsletter-input" required>
-                    <button type="submit" class="newsletter-btn">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
             </div>
         </div>
         <div class="footer-bottom">
@@ -1931,27 +1924,6 @@ Effective communication (professional writing/presentations)
                 });
             });
             
-            // Form submission
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Get form values
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const subject = document.getElementById('subject').value;
-                    const message = document.getElementById('message').value;
-                    
-                    // Here you would typically send the form data to a server
-                    // For this example, we'll just show a confirmation
-                    alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
-                    
-                    // Reset form
-                    contactForm.reset();
-                });
-            }
-            
             // Download CV button in navigation
             const downloadCvNav = document.getElementById('downloadCvNav');
             if (downloadCvNav) {
@@ -1993,6 +1965,35 @@ Effective communication (professional writing/presentations)
                     
                     // Toggle current item
                     this.classList.toggle('active');
+                });
+            });
+            
+            // Testimonials toggle functionality - Updated
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            
+            testimonialCards.forEach(card => {
+                const readMoreBtn = card.querySelector('.read-more');
+                
+                readMoreBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Toggle active class on the card
+                    card.classList.toggle('active');
+                    
+                    // Close other open testimonials
+                    testimonialCards.forEach(otherCard => {
+                        if (otherCard !== card) {
+                            otherCard.classList.remove('active');
+                        }
+                    });
+                });
+                
+                // Close when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!card.contains(e.target)) {
+                        card.classList.remove('active');
+                    }
                 });
             });
             
