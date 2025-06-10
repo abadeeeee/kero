@@ -65,7 +65,7 @@
         .portfolio-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 40px;
+            padding: 20px;
             position: relative;
         }
 
@@ -74,15 +74,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 60px;
+            margin-bottom: 30px;
             position: relative;
             z-index: 10;
-            padding: 15px 0;
+            padding: 10px 0;
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
@@ -127,14 +127,14 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
 
         .nav-link {
             color: var(--text);
             text-decoration: none;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 14px;
             position: relative;
             transition: all 0.3s ease;
         }
@@ -175,7 +175,7 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                gap: 30px;
+                gap: 20px;
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 transition: right 0.3s ease;
                 z-index: 99;
@@ -186,31 +186,32 @@
             }
             
             .nav-link {
-                font-size: 18px;
-                padding: 10px 0;
+                font-size: 16px;
+                padding: 8px 0;
             }
         }
 
         /* Hero Section */
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1fr;
+            gap: 30px;
             align-items: center;
-            margin-bottom: 100px;
+            margin-bottom: 50px;
         }
 
         .hero-content {
             position: relative;
             z-index: 5;
+            order: 2;
         }
 
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: 52px;
+            font-size: 32px;
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
+            line-height: 1.3;
+            margin-bottom: 15px;
             color: var(--dark);
         }
 
@@ -225,48 +226,51 @@
             bottom: 5px;
             left: 0;
             width: 100%;
-            height: 8px;
+            height: 6px;
             background: var(--secondary);
             opacity: 0.5;
             z-index: -1;
         }
 
         .hero-subtitle {
-            font-size: 20px;
+            font-size: 16px;
             color: var(--text);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             line-height: 1.6;
             opacity: 0.8;
         }
 
         .hero-btns {
             display: flex;
-            gap: 20px;
-            margin-top: 40px;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .btn {
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             text-decoration: none;
+            text-align: center;
+            justify-content: center;
         }
 
         .btn-primary {
             background: var(--primary);
             color: white;
-            box-shadow: 0 10px 20px rgba(65, 105, 225, 0.3);
+            box-shadow: 0 5px 15px rgba(65, 105, 225, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(65, 105, 225, 0.4);
+            box-shadow: 0 8px 20px rgba(65, 105, 225, 0.4);
         }
 
         .btn-secondary {
@@ -282,18 +286,20 @@
 
         .hero-image {
             position: relative;
-            height: 500px;
+            height: auto;
             display: flex;
             justify-content: center;
             align-items: center;
+            order: 1;
+            margin-bottom: 20px;
         }
 
         .profile-frame {
-            width: 380px;
-            height: 380px;
-            border-radius: 30px;
+            width: 250px;
+            height: 250px;
+            border-radius: 20px;
             background: white;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             position: relative;
             z-index: 2;
@@ -316,35 +322,13 @@
             transform: scale(1.1);
         }
 
-        .shape-1 {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: var(--primary);
-            border-radius: 40px;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            opacity: 0.1;
-            transform: rotate(45deg);
-        }
-
-        .shape-2 {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background: var(--secondary);
-            border-radius: 30px;
-            bottom: 0;
-            right: 0;
-            z-index: 1;
-            opacity: 0.1;
-            transform: rotate(30deg);
+        .shape-1, .shape-2 {
+            display: none;
         }
 
         /* About Section */
         .section {
-            margin-bottom: 100px;
+            margin-bottom: 50px;
             position: relative;
         }
 
@@ -352,12 +336,12 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 36px;
+            font-size: 28px;
             font-weight: 700;
             color: var(--dark);
             position: relative;
@@ -367,108 +351,109 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -8px;
             left: 0;
-            width: 60px;
-            height: 4px;
+            width: 50px;
+            height: 3px;
             background: var(--secondary);
             border-radius: 2px;
         }
 
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1fr;
+            gap: 30px;
             align-items: center;
         }
 
         .about-text {
-            font-size: 16px;
-            line-height: 1.8;
+            font-size: 14px;
+            line-height: 1.7;
             color: var(--text);
             opacity: 0.9;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .about-highlights {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .highlight-item {
             background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
 
         .highlight-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .highlight-icon {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: white;
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .highlight-title {
             font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 16px;
+            margin-bottom: 8px;
             color: var(--dark);
         }
 
         .highlight-text {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text);
             opacity: 0.8;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .about-image {
             position: relative;
             height: 100%;
+            margin-bottom: 20px;
         }
 
         .about-img {
             width: 100%;
             height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         /* Experience Section */
         .experience-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .experience-item {
             background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
         .experience-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .experience-item::before {
@@ -476,40 +461,40 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 5px;
+            width: 4px;
             height: 100%;
             background: linear-gradient(to bottom, var(--primary), var(--secondary));
         }
 
         .exp-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--dark);
         }
 
         .exp-company {
-            font-size: 16px;
+            font-size: 14px;
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
 
         .exp-company i {
-            margin-right: 8px;
+            margin-right: 6px;
         }
 
         .exp-date {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text);
             opacity: 0.7;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .exp-description {
-            font-size: 15px;
-            line-height: 1.7;
+            font-size: 14px;
+            line-height: 1.6;
             color: var(--text);
             opacity: 0.9;
         }
@@ -517,23 +502,23 @@
         /* Education Section */
         .education-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .education-item {
             background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
         .education-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .education-item::before {
@@ -541,63 +526,63 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 5px;
+            width: 4px;
             height: 100%;
             background: linear-gradient(to bottom, var(--secondary), var(--accent));
         }
 
         .edu-degree {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--dark);
         }
 
         .edu-institution {
-            font-size: 16px;
+            font-size: 14px;
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
 
         .edu-institution i {
-            margin-right: 8px;
+            margin-right: 6px;
         }
 
         .edu-date {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text);
             opacity: 0.7;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .edu-description {
-            font-size: 15px;
-            line-height: 1.7;
+            font-size: 14px;
+            line-height: 1.6;
             color: var(--text);
             opacity: 0.9;
         }
 
         /* Certifications Section - Mobile Friendly */
         .certifications-section {
-            margin-bottom: 100px;
+            margin-bottom: 50px;
         }
 
         .certifications-container {
             position: relative;
-            padding: 20px 0;
+            padding: 15px 0;
         }
 
         .certifications-track {
             display: flex;
-            gap: 20px;
-            padding: 20px 10px;
+            gap: 15px;
+            padding: 15px 5px;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .certifications-track::-webkit-scrollbar {
@@ -609,8 +594,8 @@
             max-width: 85%;
             scroll-snap-align: center;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -619,36 +604,36 @@
 
         .certification-img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
             border-bottom: 1px solid #eee;
         }
 
         .certification-content {
-            padding: 20px;
+            padding: 15px;
         }
 
         .certification-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--dark);
         }
 
         .certification-issuer {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
         }
 
         .certification-issuer i {
-            margin-right: 8px;
+            margin-right: 6px;
         }
 
         .certification-date {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text);
             opacity: 0.7;
         }
@@ -661,140 +646,138 @@
         }
 
         .certification-details-content {
-            padding: 0 20px 20px;
+            padding: 0 15px 15px;
         }
 
         .certification-details p {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 10px;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 8px;
         }
 
         .certification-item.active .certification-details {
             max-height: 500px;
         }
 
-        /* Skills Section */
+        /* Skills Section - Modified without percentages */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: 1fr;
+            gap: 15px;
         }
 
         .skill-category {
             background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .skill-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--dark);
             display: flex;
             align-items: center;
         }
 
         .skill-title i {
-            margin-right: 10px;
+            margin-right: 8px;
             color: var(--primary);
         }
 
-        .skill-item {
-            margin-bottom: 15px;
+        .skill-list {
+            list-style-type: none;
         }
 
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
+        .skill-list li {
+            margin-bottom: 8px;
             font-size: 14px;
+            color: var(--text);
+            position: relative;
+            padding-left: 20px;
         }
 
-        .skill-bar {
-            height: 8px;
-            background: #f0f0f0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            border-radius: 4px;
-            transition: width 1s ease;
+        .skill-list li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
         }
 
         /* Testimonials */
         .testimonials-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .testimonial-item {
             background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
 
         .testimonial-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .testimonial-text {
             font-style: italic;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            line-height: 1.7;
+            margin-bottom: 15px;
             color: var(--text);
             position: relative;
+            font-size: 14px;
         }
 
         .testimonial-text::before,
         .testimonial-text::after {
             content: '"';
-            font-size: 40px;
+            font-size: 30px;
             color: var(--primary);
             opacity: 0.3;
             position: absolute;
         }
 
         .testimonial-text::before {
-            top: -20px;
-            left: -10px;
+            top: -15px;
+            left: -8px;
         }
 
         .testimonial-text::after {
-            bottom: -40px;
-            right: -10px;
+            bottom: -30px;
+            right: -8px;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
         .author-img {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             object-fit: cover;
-            margin-right: 15px;
+            margin-right: 12px;
         }
 
         .author-info h4 {
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
+            font-size: 14px;
         }
 
         .author-info p {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--text);
             opacity: 0.7;
         }
@@ -802,53 +785,55 @@
         /* Contact Section */
         .contact-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1fr;
+            gap: 30px;
         }
 
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
 
         .contact-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .contact-icon {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
+            margin-right: 15px;
             color: white;
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .contact-details h4 {
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
+            font-size: 14px;
         }
 
-        .contact-details a {
+        .contact-details a, .contact-details p {
             color: var(--text);
             text-decoration: none;
             transition: all 0.3s ease;
+            font-size: 13px;
         }
 
         .contact-details a:hover {
@@ -857,28 +842,29 @@
 
         .contact-form {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .form-label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 500;
+            font-size: 14px;
         }
 
         .form-input,
         .form-textarea {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 14px;
             transition: all 0.3s ease;
         }
 
@@ -890,7 +876,7 @@
         }
 
         .form-textarea {
-            min-height: 150px;
+            min-height: 120px;
             resize: vertical;
         }
 
@@ -898,45 +884,45 @@
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(65, 105, 225, 0.3);
+            box-shadow: 0 5px 15px rgba(65, 105, 225, 0.3);
         }
 
         /* Footer */
         .footer {
             background: var(--dark);
             color: white;
-            padding: 60px 0 30px;
-            margin-top: 100px;
+            padding: 40px 0 20px;
+            margin-top: 60px;
         }
 
         .footer-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 20px;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1fr;
+            gap: 30px;
         }
 
         .footer-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: inline-block;
         }
 
@@ -945,21 +931,21 @@
         }
 
         .footer-about {
-            font-size: 15px;
-            line-height: 1.7;
+            font-size: 14px;
+            line-height: 1.6;
             opacity: 0.8;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .footer-social {
             display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
             display: flex;
@@ -967,6 +953,7 @@
             justify-content: center;
             color: white;
             transition: all 0.3s ease;
+            font-size: 14px;
         }
 
         .social-link:hover {
@@ -976,11 +963,11 @@
 
         .footer-links h3,
         .footer-newsletter h3 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
 
         .footer-links h3::after,
@@ -989,8 +976,8 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
-            height: 3px;
+            width: 35px;
+            height: 2px;
             background: var(--secondary);
         }
 
@@ -999,7 +986,7 @@
         }
 
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .footer-links a {
@@ -1007,6 +994,7 @@
             opacity: 0.8;
             text-decoration: none;
             transition: all 0.3s ease;
+            font-size: 13px;
         }
 
         .footer-links a:hover {
@@ -1017,26 +1005,27 @@
 
         .newsletter-form {
             display: flex;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .newsletter-input {
             flex: 1;
-            padding: 12px 15px;
+            padding: 10px 12px;
             border: none;
             border-radius: 5px 0 0 5px;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .newsletter-btn {
             background: var(--secondary);
             color: var(--dark);
             border: none;
-            padding: 0 20px;
+            padding: 0 15px;
             border-radius: 0 5px 5px 0;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 13px;
         }
 
         .newsletter-btn:hover {
@@ -1045,18 +1034,18 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
-            margin-top: 50px;
+            padding-top: 20px;
+            margin-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
+            font-size: 12px;
             opacity: 0.7;
         }
 
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             width: 50px;
             height: 50px;
             background: var(--primary);
@@ -1065,13 +1054,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 18px;
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 999;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
         .back-to-top.active {
@@ -1104,8 +1093,8 @@
         }
 
         .floating-element:nth-child(1) {
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             background: var(--primary);
             top: 10%;
             left: 5%;
@@ -1113,8 +1102,8 @@
         }
 
         .floating-element:nth-child(2) {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             background: var(--secondary);
             top: 60%;
             left: 80%;
@@ -1122,8 +1111,8 @@
         }
 
         .floating-element:nth-child(3) {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             background: var(--accent);
             top: 30%;
             left: 70%;
@@ -1135,130 +1124,135 @@
                 transform: translateY(0) rotate(0deg);
             }
             50% {
-                transform: translateY(-50px) rotate(10deg);
+                transform: translateY(-30px) rotate(10deg);
             }
         }
 
         /* Responsive Styles */
-        @media (max-width: 1200px) {
+        @media (min-width: 576px) {
             .hero-title {
-                font-size: 42px;
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 17px;
+            }
+            
+            .about-highlights {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .certification-item {
+                flex: 0 0 70%;
+                max-width: 70%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .portfolio-container {
+                padding: 30px;
+            }
+            
+            .hero {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                margin-bottom: 60px;
+            }
+            
+            .hero-content {
+                order: 1;
+            }
+            
+            .hero-image {
+                order: 2;
+                margin-bottom: 0;
+            }
+            
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .hero-btns {
+                flex-direction: row;
+            }
+            
+            .profile-frame {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .about-image {
+                margin-bottom: 0;
+            }
+            
+            .experience-container,
+            .education-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .skills-container,
+            .testimonials-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero-title {
+                font-size: 46px;
             }
             
             .section-title {
                 font-size: 32px;
             }
             
-            .experience-container,
-            .education-container,
             .skills-container,
             .testimonials-container {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-image {
-                order: -1;
-                height: 400px;
-                margin-bottom: 40px;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-image {
-                order: -1;
-                margin-bottom: 40px;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(3, 1fr);
             }
             
             .footer-container {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            
+            .shape-1, .shape-2 {
+                display: block;
+            }
+            
+            .shape-1 {
+                width: 150px;
+                height: 150px;
+                top: 0;
+                left: 0;
+            }
+            
+            .shape-2 {
+                width: 120px;
+                height: 120px;
+                bottom: 0;
+                right: 0;
             }
         }
 
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: row;
-                align-items: center;
-                gap: 20px;
-                padding: 15px 20px;
-            }
-            
+        @media (min-width: 1200px) {
             .hero-title {
-                font-size: 36px;
-            }
-            
-            .hero-subtitle {
-                font-size: 18px;
-            }
-            
-            .hero-btns {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .experience-container,
-            .education-container,
-            .skills-container,
-            .testimonials-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .certification-item {
-                flex: 0 0 85%;
-                max-width: 85%;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .portfolio-container {
-                padding: 20px;
-            }
-            
-            .hero-title {
-                font-size: 30px;
-            }
-            
-            .section-title {
-                font-size: 28px;
+                font-size: 52px;
             }
             
             .profile-frame {
-                width: 280px;
-                height: 280px;
-            }
-            
-            .about-highlights {
-                grid-template-columns: 1fr;
-            }
-            
-            .certification-item {
-                flex: 0 0 90%;
-                max-width: 90%;
-            }
-            
-            .footer-container {
-                padding: 0 20px;
+                width: 350px;
+                height: 350px;
             }
         }
     </style>
@@ -1333,15 +1327,16 @@
             <div class="about-content">
                 <div class="about-text-content">
                     <p class="about-text">
-                        I am a dedicated and passionate English teacher with experience in both traditional and online educational settings. Currently, I work as an English Teacher at Smart City International School (SCIS) in New Asyut, Egypt, where I have been shaping young minds since September 2022.
-
-In addition to my role at SCIS, I served as an English Instructor at English Capsules, an online teaching platform, from July to October 2024. This experience allowed me to develop strong digital teaching skills and adapt to remote learning environments.
+                       I'm Kerolos, a poet, educator, and the proud author of Indefinable, a collection of poems in Egyptian colloquial Arabic. As an English Language Arts and ESL teacher, I see education not just as instruction—but as inspiration. I believe that every learner holds the potential to become a living poem—full of meaning, emotion, and power to influence the world.
                     </p>
                     <p class="about-text">
-Before joining SCIS, I worked as an English Teacher at Futures Language School in New Asyut (September 2021 – September 2022), where I gained valuable classroom management and curriculum delivery experience.
-
-I am committed to fostering a love for the English language in my students through engaging lessons, innovative teaching methods, and a student-centered approach. My goal is to inspire confidence and proficiency in English while adapting to diverse learning needs.
-
+                       Fueled by a deep passion for language, I dedicate myself to reshaping mindsets, cultivating critical thinking, and nurturing students into global citizens who act with empathy and purpose. Through dynamic teaching, literature, cultural exchange, and creative expression, I strive to build classrooms that are inclusive, expressive, and transformative.
+                    </p>
+                    <p class="about-text">
+                       With TESOL certification and a strong foundation in American, British, and National Curricula, I bring years of experience in curriculum design, educational leadership, differentiated instruction, and student empowerment. I've authored English improvement booklets and standardized test prep resources, and I lead initiatives that blend academic achievement with emotional intelligence and civic responsibility.
+                    </p>
+                    <p class="about-text">
+                       Whether I'm mentoring students to present before university professors, organizing community service visits to orphanages, or simply celebrating the power of words in a quiet classroom moment—I teach to inspire change.
                     </p>
                     <div class="about-highlights">
                         <div class="highlight-item">
@@ -1375,11 +1370,6 @@ I am committed to fostering a love for the English language in my students throu
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="2.JPG" 
-                         alt="Teaching Environment" 
-                         class="about-img"
-                         loading="lazy">
-                </div>
             </div>
         </section>
         
@@ -1441,17 +1431,20 @@ I am committed to fostering a love for the English language in my students throu
                     <h3 class="edu-degree">TESOL/TEFL Certificate (120 Hours)</h3>
                 </div>
                 <div class="education-item">
-                    <h3 class="edu-degree">Bachelor’s Degree</h3>
+                    <h3 class="edu-degree">Bachelor's Degree</h3>
                 </div>
                 <div class="education-item">
-                    <h3 class="edu-degree">TICO Certification – Ontario Travel Industry Act</h3>
+                    <h3 class="edu-degree">TICO Certification – Ontario Travel Industry Act</h3>
                 </div>
                 <div class="education-item">
                     <h3 class="edu-degree">Essential Work Skills Certificate
-Tatweer International – Learning Technology</h3>
+Tatweer International – Learning Technology</h3>
                 </div>
                 <div class="education-item">
-                    <h3 class="edu-degree">Nile TESOL 23rd Annual Conference</h3>
+                    <h3 class="edu-degree">Attended</h3>
+<h3 class="edu-degree">
+Bachelor 23rd Annual Conference, 2019
+Bachelor 28th Annual Conference, 2024</h3>
                 </div>
             </div>
         </section>
@@ -1478,7 +1471,7 @@ Tatweer International – Learning Technology</h3>
                         </div>
                     </div>
                     <div class="certification-item">
-                        <img src="tico.jpg" alt="IELTS Examiner" class="certification-img">
+                        <img src="tico.jpg" alt="TICO Certification" class="certification-img">
                         <div class="certification-content">
                             <h3 class="certification-title"> TICO</h3>
                             <p class="certification-issuer"><i class="fas fa-award"></i>Travel Counsellor Exam</p>
@@ -1487,12 +1480,12 @@ Tatweer International – Learning Technology</h3>
                         <div class="certification-details">
                             <div class="certification-details-content">
                                 <p>TICO Certification </p>
-                                <p> Ontario Travel Industry Act</p>
+                                <p> Ontario Travel Industry Act</p>
                             </div>
                         </div>
                     </div>
                     <div class="certification-item">
-                        <img src="Essential work skills.jpg" alt="Business English" class="certification-img">
+                        <img src="Essential work skills.jpg" alt="Essential Work Skills Certificate" class="certification-img">
                         <div class="certification-content">
                             <h3 class="certification-title">Essential Work Skills Certificate</h3>
                             <p class="certification-issuer"><i class="fas fa-award"></i> Learning Technology</p>
@@ -1514,7 +1507,7 @@ Effective communication (professional writing/presentations)
                         </div>
                     </div>
                     <div class="certification-item">
-                        <img src="Exploring Quality Teaching and Learning.jpg" alt="Online Teaching" class="certification-img">
+                        <img src="Exploring Quality Teaching and Learning.jpg" alt="Nile TESOL Conference" class="certification-img">
                         <div class="certification-content">
                             <h3 class="certification-title">Nile TESOL 23rd Annual Conference</h3>
                             <p class="certification-issuer"><i class="fas fa-award"></i> International TEFL Academy</p>
@@ -1534,120 +1527,48 @@ Effective communication (professional writing/presentations)
             <div class="skills-container">
                 <div class="skill-category">
                     <h3 class="skill-title"><i class="fas fa-chalkboard"></i> Teaching Methods</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Communicative Approach</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Task-Based Learning</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Content-Based Instruction</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Flipped Classroom</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
+                    <ul class="skill-list">
+                        <li>Differentiated Instruction</li>
+                        <li>Project-Based Learning (PBL)</li>
+                        <li>Task-Based Learning (TBL)</li>
+                        <li>PWP Method (Pre-While-Post)</li>
+                        <li>Interactive/Student-Centered Learning</li>
+                        <li>Formative & Summative Assessment</li>
+                        <li>Flipped Classroom</li>
+                        <li>Inquiry-Based Learning</li>
+                        <li>Socratic Seminars / Literature Circles</li>
+                        <li>Use of Scaffolding and Bloom's Taxonomy</li>
+                    </ul>
                 </div>
                 <div class="skill-category">
-                    <h3 class="skill-title"><i class="fas fa-language"></i> Language Skills</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>IELTS Preparation</span>
-                            <span>98%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 98%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Business English</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Academic Writing</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Pronunciation Coaching</span>
-                            <span>88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 88%"></div>
-                        </div>
-                    </div>
+                    <h3 class="skill-title"><i class="fas fa-language"></i> Language Teaching Skills</h3>
+                    <ul class="skill-list">
+                        <li>Fluency in English (Speaking & Listening)</li>
+                        <li>Reading Comprehension Skills</li>
+                        <li>Grammar and Vocabulary Teaching</li>
+                        <li>Academic Writing and Text Analysis</li>
+                        <li>Pronunciation & Phonics Instruction</li>
+                        <li>ESL/EFL Methodology</li>
+                        <li>Multilingual Ability (Arabic & English)</li>
+                        <li>Teaching Exam Preparation (IELTS/TOEFL)</li>
+                        <li>Cultural Competence in Language Teaching</li>
+                        <li>High-Frequency Word Strategies</li>
+                    </ul>
                 </div>
                 <div class="skill-category">
                     <h3 class="skill-title"><i class="fas fa-laptop"></i> Technical Skills</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Online Teaching Platforms</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Learning Management Systems</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Educational Technology</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Content Creation</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
+                    <ul class="skill-list">
+                        <li>Smartboard and Interactive Whiteboard Usage</li>
+                        <li>Microsoft Office Suite (Word, Excel, PowerPoint)</li>
+                        <li>Google Workspace (Docs, Slides, Forms, Classroom)</li>
+                        <li>Learning Management Systems (LMS) like Moodle, Edmodo, or Schoology</li>
+                        <li>Zoom / Microsoft Teams / Google Meet for Online Instruction</li>
+                        <li>Digital Assessment Tools (Kahoot, Quizizz, Socrative)</li>
+                        <li>Slide Design for Instructional Content</li>
+                        <li>Audio/Video Editing for Educational Content</li>
+                        <li>Basic Troubleshooting & Classroom Tech Setup</li>
+                        <li>Online Exam Proctoring Tools</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -1660,36 +1581,33 @@ Effective communication (professional writing/presentations)
             <div class="testimonials-container">
                 <div class="testimonial-item">
                     <p class="testimonial-text">
-                        Kerolos transformed my English skills in just 3 months. His personalized approach and engaging lessons helped me achieve IELTS 7.5, which was crucial for my university admission abroad.
-                    </p>
+                        My name is Emma, and I'm an Italian student lucky enough to have Mr. Kerolos as my teacher. His lessons are anything but boring—he brings grammar and writing to life with interactive activities that actually make learning enjoyable (yes, even grammar!). Literature classes are never dull either; we dive into lively debates and discussions that keep everyone on their toes. Oh, and as a bonus, he speaks with a British accent, which somehow makes everything sound a bit more sophisticated!</p>
                     <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah M." class="author-img">
+                        <img src="Emma Gardella.jpg" alt="Emma Gardella" class="author-img">
                         <div class="author-info">
-                            <h4>Sarah M.</h4>
-                            <p>Medical Student, Germany</p>
+                            <h4>Emma Gardella</h4>
+                            <p>From Italy</p>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-item">
                     <p class="testimonial-text">
-                        As a business professional, I needed to improve my communication skills quickly. Kerolos's business English course was exactly what I needed - practical, relevant, and results-oriented.
-                    </p>
+                        My name is Patrick, and I am a Canadian student. I have been studying under the guidance of Mr. Kerolos for over three years, and during this time, I've witnessed significant growth in my English skills, particularly in reading and writing. When I first left Canada to move to Egypt, I was concerned that my English might decline. However, the opposite proved true—my English has improved in many ways. I'm truly grateful to Mr. Kerolos for his continuous support and for helping me feel welcomed and confident in my learning journey.                    </p>
                     <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Ahmed K." class="author-img">
+                        <img src="Patrick Jean.jpg" alt="Patrick Jean" class="author-img">
                         <div class="author-info">
-                            <h4>Ahmed K.</h4>
-                            <p>Marketing Director</p>
+                            <h4>Patrick Jean</h4>
+                            <p>From Canada</p>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-item">
                     <p class="testimonial-text">
-                        I had failed IELTS twice before working with Kerolos. His strategic approach to exam preparation and his detailed feedback on my writing made all the difference. I finally achieved my target score!
-                    </p>
+                        My name is Mohamed, and I'm an Egyptian student. Mr. Kerolos as a teacher is far better than many others I've learned from. He encourages competitions, which greatly motivates us, and he is a well-known figure in the English teaching community.   </p>
                     <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Yasmin H." class="author-img">
+                        <img src="Mohamed.jpg" alt="Mohamed" class="author-img">
                         <div class="author-info">
-                            <h4>Yasmin H.</h4>
+                            <h4>Mohamed</h4>
                             <p>Architect, UAE</p>
                         </div>
                     </div>
@@ -1728,7 +1646,7 @@ Effective communication (professional writing/presentations)
                         </div>
                         <div class="contact-details">
                             <h4>Phone</h4>
-                            <a href="tel:+201234567890">+20 122 705 4309</a>
+                            <a href="tel:+201227054309">+20 122 705 4309</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1806,7 +1724,7 @@ Effective communication (professional writing/presentations)
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Kerolos Makram. All Rights Reserved.</p>
+            <p>&copy; 2023 Kerolos Makram. All Rights Reserved.</p>
         </div>
     </footer>
     
@@ -1851,18 +1769,6 @@ Effective communication (professional writing/presentations)
                 });
             });
             
-            // Animate skill bars on scroll
-            const skillBars = document.querySelectorAll('.skill-progress');
-            const animateSkillBars = () => {
-                skillBars.forEach(bar => {
-                    const width = bar.style.width;
-                    bar.style.width = '0';
-                    setTimeout(() => {
-                        bar.style.width = width;
-                    }, 100);
-                });
-            };
-            
             // Show/hide back to top button
             const backToTop = document.querySelector('.back-to-top');
             window.addEventListener('scroll', () => {
@@ -1883,7 +1789,7 @@ Effective communication (professional writing/presentations)
                     
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - 80,
+                            top: targetElement.offsetTop - 70,
                             behavior: 'smooth'
                         });
                     }
@@ -1963,32 +1869,36 @@ Effective communication (professional writing/presentations)
                 });
             });
             
-            // Intersection Observer for animations
-            const observerOptions = {
-                threshold: 0.1
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        if (entry.target.classList.contains('skills-container')) {
-                            animateSkillBars();
+            // Animate elements when they come into view
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.section, .skill-progress');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (elementPosition < screenPosition) {
+                        if (element.classList.contains('skill-progress')) {
+                            // For skill bars, animate their width
+                            const width = element.getAttribute('data-width') || element.style.width;
+                            element.style.width = '0';
+                            setTimeout(() => {
+                                element.style.width = width;
+                            }, 100);
+                        } else {
+                            // For sections, fade them in
+                            element.style.opacity = '1';
+                            element.style.transform = 'translateY(0)';
                         }
-                        
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                        observer.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            };
             
-            // Observe sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(30px)';
-                section.style.transition = 'all 0.6s ease-out';
-                observer.observe(section);
-            });
+            // Initial animation check
+            animateOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', animateOnScroll);
         });
     </script>
 </body>
