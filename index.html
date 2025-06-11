@@ -658,22 +658,51 @@
             max-height: 500px;
         }
 
-        /* Skills Section - Modified without percentages */
+        /* Enhanced Skills Section - Now as swipeable cards */
+        .skills-section {
+            margin-bottom: 50px;
+        }
+
         .skills-container {
-            display: grid;
-            grid-template-columns: 1fr;
+            position: relative;
+            padding: 15px 0;
+        }
+
+        .skills-track {
+            display: flex;
             gap: 15px;
+            padding: 15px 5px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: 20px;
         }
 
-        .skill-category {
+        .skills-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .skill-card {
+            flex: 0 0 85%;
+            max-width: 85%;
+            scroll-snap-align: center;
             background: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
 
-        .skill-title {
-            font-size: 16px;
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-card-title {
+            font-size: 18px;
             font-weight: 600;
             margin-bottom: 15px;
             color: var(--dark);
@@ -681,8 +710,8 @@
             align-items: center;
         }
 
-        .skill-title i {
-            margin-right: 8px;
+        .skill-card-title i {
+            margin-right: 10px;
             color: var(--primary);
         }
 
@@ -691,11 +720,12 @@
         }
 
         .skill-list li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 14px;
             color: var(--text);
             position: relative;
             padding-left: 20px;
+            line-height: 1.5;
         }
 
         .skill-list li::before {
@@ -707,55 +737,57 @@
             margin-left: -1em;
         }
 
-        /* Updated Testimonials Section */
+        /* Enhanced Testimonials Section */
         .testimonials-section {
             margin-bottom: 50px;
         }
 
         .testimonials-container {
+            position: relative;
+        }
+
+        .testimonials-track {
             display: flex;
-            overflow-x: auto;
             gap: 20px;
-            padding: 20px 0;
+            padding: 20px 5px;
+            overflow-x: auto;
             scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary) #f1f1f1;
         }
 
-        .testimonials-container::-webkit-scrollbar {
-            height: 8px;
+        .testimonials-track::-webkit-scrollbar {
+            height: 6px;
         }
 
-        .testimonials-container::-webkit-scrollbar-track {
+        .testimonials-track::-webkit-scrollbar-track {
             background: #f1f1f1;
             border-radius: 10px;
         }
 
-        .testimonials-container::-webkit-scrollbar-thumb {
+        .testimonials-track::-webkit-scrollbar-thumb {
             background: var(--primary);
             border-radius: 10px;
         }
 
         .testimonial-card {
-            flex: 0 0 280px;
-            scroll-snap-align: start;
+            flex: 0 0 90%;
+            max-width: 90%;
+            scroll-snap-align: center;
             background: white;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             overflow: hidden;
-            cursor: pointer;
             position: relative;
         }
 
         .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .testimonial-preview {
-            padding: 20px;
+        .testimonial-content {
+            padding: 25px;
             position: relative;
         }
 
@@ -780,12 +812,12 @@
 
         .author-name {
             font-weight: 600;
-            margin-bottom: 3px;
+            margin-bottom: 5px;
             color: var(--dark);
         }
 
         .author-location {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--primary);
             display: flex;
             align-items: center;
@@ -793,99 +825,77 @@
 
         .author-location i {
             margin-right: 5px;
-        }
-
-        .testimonial-excerpt {
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--text);
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            position: relative;
-            padding-bottom: 20px;
-        }
-
-        .testimonial-excerpt::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: linear-gradient(to bottom, rgba(255,255,255,0), white);
-        }
-
-        .read-more {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
             font-size: 12px;
-            color: var(--primary);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            z-index: 2;
-            background: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .read-more i {
-            margin-left: 5px;
-            transition: transform 0.3s ease;
-        }
-
-        .testimonial-full {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-            padding: 0 20px;
-            background: #f9f9f9;
-            position: relative;
-        }
-
-        .testimonial-full-content {
-            padding: 0 0 20px;
+        .testimonial-text {
             font-size: 14px;
             line-height: 1.7;
             color: var(--text);
+            margin-bottom: 15px;
             position: relative;
         }
 
-        .testimonial-full-content::before,
-        .testimonial-full-content::after {
+        .testimonial-text::before,
+        .testimonial-text::after {
             content: '"';
             font-size: 30px;
             color: var(--primary);
-            opacity: 0.3;
+            opacity: 0.2;
             position: absolute;
         }
 
-        .testimonial-full-content::before {
-            top: 0;
-            left: -8px;
+        .testimonial-text::before {
+            top: -15px;
+            left: -5px;
         }
 
-        .testimonial-full-content::after {
-            bottom: -20px;
-            right: -8px;
+        .testimonial-text::after {
+            bottom: -25px;
+            right: -5px;
         }
 
-        .testimonial-card.active .testimonial-full {
-            max-height: 500px;
-            padding: 20px;
+        .testimonial-rating {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
         }
 
-        .testimonial-card.active .read-more i {
-            transform: rotate(180deg);
+        .rating-stars {
+            color: var(--secondary);
+            margin-right: 10px;
         }
 
-        .testimonial-card.active .testimonial-excerpt {
-            display: none;
+        .rating-stars i {
+            font-size: 14px;
+        }
+
+        .rating-date {
+            font-size: 12px;
+            color: var(--text);
+            opacity: 0.7;
+        }
+
+        /* Navigation dots for testimonials */
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 8px;
+        }
+
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
         }
 
         /* Courses Section */
@@ -1222,7 +1232,13 @@
             }
 
             .testimonial-card {
-                flex: 0 0 320px;
+                flex: 0 0 80%;
+                max-width: 80%;
+            }
+
+            .skill-card {
+                flex: 0 0 70%;
+                max-width: 70%;
             }
         }
 
@@ -1272,10 +1288,6 @@
                 grid-template-columns: 1fr 1fr;
             }
             
-            .skills-container {
-                grid-template-columns: 1fr 1fr;
-            }
-            
             .contact-container {
                 grid-template-columns: 1fr 1fr;
             }
@@ -1285,7 +1297,13 @@
             }
 
             .testimonial-card {
-                flex: 0 0 280px;
+                flex: 0 0 60%;
+                max-width: 60%;
+            }
+
+            .skill-card {
+                flex: 0 0 45%;
+                max-width: 45%;
             }
         }
 
@@ -1296,10 +1314,6 @@
             
             .section-title {
                 font-size: 32px;
-            }
-            
-            .skills-container {
-                grid-template-columns: repeat(3, 1fr);
             }
             
             .footer-container {
@@ -1325,7 +1339,13 @@
             }
 
             .testimonial-card {
-                flex: 0 0 260px;
+                flex: 0 0 45%;
+                max-width: 45%;
+            }
+
+            .skill-card {
+                flex: 0 0 30%;
+                max-width: 30%;
             }
         }
 
@@ -1340,7 +1360,13 @@
             }
 
             .testimonial-card {
-                flex: 0 0 300px;
+                flex: 0 0 35%;
+                max-width: 35%;
+            }
+
+            .skill-card {
+                flex: 0 0 28%;
+                max-width: 28%;
             }
         }
     </style>
@@ -1531,7 +1557,7 @@ Tatweer International – Learning Technology</h3>
                     <h3 class="edu-degree">Attended</h3>
 <h3 class="edu-degree">
 Bachelor 23rd Annual Conference, 2019
-Bachelor 28th Annual Conference, 2024</h3>
+Bachelor 28th Annual Conference, 2024</h3>
                 </div>
             </div>
         </section>
@@ -1608,161 +1634,187 @@ Effective communication (professional writing/presentations)
                         <div class="certification-content">
                             <h3 class="certification-title">The Indefinable</h3>
                             <p class="certification-issuer"><i class="fas fa-award"></i>A collection of poems in Egyptian colloquial Arabic</p>
-                            <p class="certification-date">published in 2021.</p>
+                            <p class="certification-date">published in 2021.</p>
                         </div>
                         <div class="certification-details">
                             <div class="certification-details-content">
-                                <p>The Indefinable, a collection of poems in Egyptian colloquial Arabic published in 2021. </p>
+                                <p>The Indefinable, a collection of poems in Egyptian colloquial Arabic published in 2021. </p>
                             </div>
                         </div>
                     </div>
-                    
-                    
+                </div>
             </div>
         </section>
         
-        <!-- Skills Section -->
-        <section class="section" id="skills">
+        <!-- Enhanced Skills Section -->
+        <section class="section skills-section" id="skills">
             <div class="section-header">
                 <h2 class="section-title">Teaching Skills & Expertise</h2>
             </div>
             <div class="skills-container">
-                <div class="skill-category">
-                    <h3 class="skill-title"><i class="fas fa-chalkboard"></i> Teaching Methods</h3>
-                    <ul class="skill-list">
-                        <li>Differentiated Instruction</li>
-                        <li>Project-Based Learning (PBL)</li>
-                        <li>Task-Based Learning (TBL)</li>
-                        <li>PWP Method (Pre-While-Post)</li>
-                        <li>Interactive/Student-Centered Learning</li>
-                        <li>Formative & Summative Assessment</li>
-                        <li>Flipped Classroom</li>
-                        <li>Inquiry-Based Learning</li>
-                        <li>Socratic Seminars / Literature Circles</li>
-                        <li>Use of Scaffolding and Bloom's Taxonomy</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3 class="skill-title"><i class="fas fa-language"></i> Language Teaching Skills</h3>
-                    <ul class="skill-list">
-                        <li>Fluency in English (Speaking & Listening)</li>
-                        <li>Reading Comprehension Skills</li>
-                        <li>Grammar and Vocabulary Teaching</li>
-                        <li>Academic Writing and Text Analysis</li>
-                        <li>Pronunciation & Phonics Instruction</li>
-                        <li>ESL/EFL Methodology</li>
-                        <li>Multilingual Ability (Arabic & English)</li>
-                        <li>Teaching Exam Preparation (IELTS/TOEFL)</li>
-                        <li>Cultural Competence in Language Teaching</li>
-                        <li>High-Frequency Word Strategies</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3 class="skill-title"><i class="fas fa-laptop"></i> Technical Skills</h3>
-                    <ul class="skill-list">
-                        <li>Smartboard and Interactive Whiteboard Usage</li>
-                        <li>Microsoft Office Suite (Word, Excel, PowerPoint)</li>
-                        <li>Google Workspace (Docs, Slides, Forms, Classroom)</li>
-                        <li>Learning Management Systems (LMS) like Moodle, Edmodo, or Schoology</li>
-                        <li>Zoom / Microsoft Teams / Google Meet for Online Instruction</li>
-                        <li>Digital Assessment Tools (Kahoot, Quizizz, Socrative)</li>
-                        <li>Slide Design for Instructional Content</li>
-                        <li>Audio/Video Editing for Educational Content</li>
-                        <li>Basic Troubleshooting & Classroom Tech Setup</li>
-                        <li>Online Exam Proctoring Tools</li>
-                    </ul>
+                <div class="skills-track" id="skillsTrack">
+                    <div class="skill-card">
+                        <h3 class="skill-card-title"><i class="fas fa-chalkboard"></i> Teaching Methods</h3>
+                        <ul class="skill-list">
+                            <li>Differentiated Instruction</li>
+                            <li>Project-Based Learning (PBL)</li>
+                            <li>Task-Based Learning (TBL)</li>
+                            <li>PWP Method (Pre-While-Post)</li>
+                            <li>Interactive/Student-Centered Learning</li>
+                            <li>Formative & Summative Assessment</li>
+                            <li>Flipped Classroom</li>
+                            <li>Inquiry-Based Learning</li>
+                            <li>Socratic Seminars / Literature Circles</li>
+                            <li>Use of Scaffolding and Bloom's Taxonomy</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-card-title"><i class="fas fa-language"></i> Language Teaching Skills</h3>
+                        <ul class="skill-list">
+                            <li>Fluency in English (Speaking & Listening)</li>
+                            <li>Reading Comprehension Skills</li>
+                            <li>Grammar and Vocabulary Teaching</li>
+                            <li>Academic Writing and Text Analysis</li>
+                            <li>Pronunciation & Phonics Instruction</li>
+                            <li>ESL/EFL Methodology</li>
+                            <li>Multilingual Ability (Arabic & English)</li>
+                            <li>Teaching Exam Preparation (IELTS/TOEFL)</li>
+                            <li>Cultural Competence in Language Teaching</li>
+                            <li>High-Frequency Word Strategies</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h3 class="skill-card-title"><i class="fas fa-laptop"></i> Technical Skills</h3>
+                        <ul class="skill-list">
+                            <li>Smartboard and Interactive Whiteboard Usage</li>
+                            <li>Microsoft Office Suite (Word, Excel, PowerPoint)</li>
+                            <li>Google Workspace (Docs, Slides, Forms, Classroom)</li>
+                            <li>Learning Management Systems (LMS) like Moodle, Edmodo, or Schoology</li>
+                            <li>Zoom / Microsoft Teams / Google Meet for Online Instruction</li>
+                            <li>Digital Assessment Tools (Kahoot, Quizizz, Socrative)</li>
+                            <li>Slide Design for Instructional Content</li>
+                            <li>Audio/Video Editing for Educational Content</li>
+                            <li>Basic Troubleshooting & Classroom Tech Setup</li>
+                            <li>Online Exam Proctoring Tools</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <!-- Testimonials Section -->
-        <section class="section" id="testimonials">
+        <!-- Enhanced Testimonials Section -->
+        <section class="section testimonials-section" id="testimonials">
             <div class="section-header">
                 <h2 class="section-title">Student Testimonials</h2>
             </div>
             <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-preview">
-                        <div class="testimonial-author">
-                            <img src="Emma Gardella.jpg" alt="Emma Gardella" class="author-img">
-                            <div class="author-info">
-                                <h4 class="author-name">Emma Gardella</h4>
-                                <p class="author-location"><i class="fas fa-map-marker-alt"></i> Italy</p>
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-author">
+                                <img src="Emma Gardella.jpg" alt="Emma Gardella" class="author-img">
+                                <div class="author-info">
+                                    <h4 class="author-name">Emma Gardella</h4>
+                                    <p class="author-location"><i class="fas fa-map-marker-alt"></i> Italy</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-text">
+                                My name is Emma, and I'm an Italian student lucky enough to have Mr. Kerolos as my teacher. His lessons are anything but boring—he brings grammar and writing to life with interactive activities that actually make learning enjoyable (yes, even grammar!). Literature classes are never dull either; we dive into lively debates and discussions that keep everyone on their toes. Oh, and as a bonus, he speaks with a British accent, which somehow makes everything sound a bit more sophisticated!
+                            </div>
+                            <div class="testimonial-rating">
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="rating-date">June 2024</div>
                             </div>
                         </div>
-                        <div class="testimonial-excerpt">
-                            My name is Emma, and I'm an Italian student lucky enough to have Mr. Kerolos as my teacher. His lessons are anything but boring—he brings grammar and writing to life with interactive activities that actually make learning enjoyable (yes, even grammar!). Literature classes are never dull either; we dive into lively debates and discussions that keep everyone on their toes. Oh, and as a bonus, he speaks with a British accent, which somehow makes everything sound a bit more sophisticated!
-                        </div>
-                        <a class="read-more">Read More <i class="fas fa-chevron-down"></i></a>
                     </div>
-                    <div class="testimonial-full">
-                        <div class="testimonial-full-content">
-                            My name is Emma, and I'm an Italian student lucky enough to have Mr. Kerolos as my teacher. His lessons are anything but boring—he brings grammar and writing to life with interactive activities that actually make learning enjoyable (yes, even grammar!). Literature classes are never dull either; we dive into lively debates and discussions that keep everyone on their toes. Oh, and as a bonus, he speaks with a British accent, which somehow makes everything sound a bit more sophisticated!
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-author">
+                                <img src="Patrick Jean.jpg" alt="Patrick Jean" class="author-img">
+                                <div class="author-info">
+                                    <h4 class="author-name">Patrick Jean</h4>
+                                    <p class="author-location"><i class="fas fa-map-marker-alt"></i> Canada</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-text">
+                                My name is Patrick, and I am a Canadian student. I have been studying under the guidance of Mr. Kerolos for over three years, and during this time, I've witnessed significant growth in my English skills, particularly in reading and writing. When I first left Canada to move to Egypt, I was concerned that my English might decline. However, the opposite proved true—my English has improved in many ways. I'm truly grateful to Mr. Kerolos for his continuous support and for helping me feel welcomed and confident in my learning journey.
+                            </div>
+                            <div class="testimonial-rating">
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="rating-date">May 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-author">
+                                <img src="Mohamed.jpg" alt="Mohamed" class="author-img">
+                                <div class="author-info">
+                                    <h4 class="author-name">Mohamed</h4>
+                                    <p class="author-location"><i class="fas fa-map-marker-alt"></i> Egypt</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-text">
+                                My name is Mohamed, and I'm an Egyptian student. Mr. Kerolos as a teacher is far better than many others I've learned from. He encourages competitions, which greatly motivates us, and he is a well-known figure in the English teaching community.
+                            </div>
+                            <div class="testimonial-rating">
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <div class="rating-date">April 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-author">
+                                <img src="Omar Mohamad.jpg" alt="Omar Mohamad" class="author-img">
+                                <div class="author-info">
+                                    <h4 class="author-name">Omar Mohamad</h4>
+                                    <p class="author-location"><i class="fas fa-map-marker-alt"></i> Germany</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-text">
+                                My name is Omar Mohamad, and I am a high school freshman at SCIS. Mr. Kerolos is my English teacher. I lived in Germany for about six years before moving to Egypt, and I have attended multiple schools in both countries. Out of the five schools I've been to, I have never had an English teacher as devoted and innovative as Mr. Kerolos. His creative exercises and teaching methods keep us engaged and make learning both effective and memorable. Over the past two years that he has been my teacher, my English skills have improved more than they ever did elsewhere. I would like to personally thank him for his consistent dedication and effort toward his students.
+                            </div>
+                            <div class="testimonial-rating">
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="rating-date">March 2024</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <div class="testimonial-preview">
-                        <div class="testimonial-author">
-                            <img src="Patrick Jean.jpg" alt="Patrick Jean" class="author-img">
-                            <div class="author-info">
-                                <h4 class="author-name">Patrick Jean</h4>
-                                <p class="author-location"><i class="fas fa-map-marker-alt"></i> Canada</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-excerpt">
-                            My name is Patrick, and I am a Canadian student. I have been studying under the guidance of Mr. Kerolos for over three years, and during this time, I've witnessed significant growth in my English skills, particularly in reading and writing. When I first left Canada to move to Egypt, I was concerned that my English might decline. However, the opposite proved true—my English has improved in many ways.
-                        </div>
-                        <a class="read-more">Read More <i class="fas fa-chevron-down"></i></a>
-                    </div>
-                    <div class="testimonial-full">
-                        <div class="testimonial-full-content">
-                            My name is Patrick, and I am a Canadian student. I have been studying under the guidance of Mr. Kerolos for over three years, and during this time, I've witnessed significant growth in my English skills, particularly in reading and writing. When I first left Canada to move to Egypt, I was concerned that my English might decline. However, the opposite proved true—my English has improved in many ways. I'm truly grateful to Mr. Kerolos for his continuous support and for helping me feel welcomed and confident in my learning journey.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-preview">
-                        <div class="testimonial-author">
-                            <img src="Mohamed.jpg" alt="Mohamed" class="author-img">
-                            <div class="author-info">
-                                <h4 class="author-name">Mohamed</h4>
-                                <p class="author-location"><i class="fas fa-map-marker-alt"></i> Egypt</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-excerpt">
-                            My name is Mohamed, and I'm an Egyptian student. Mr. Kerolos as a teacher is far better than many others I've learned from. He encourages competitions, which greatly motivates us, and he is a well-known figure in the English teaching community.
-                        </div>
-                        <a class="read-more">Read More <i class="fas fa-chevron-down"></i></a>
-                    </div>
-                    <div class="testimonial-full">
-                        <div class="testimonial-full-content">
-                            My name is Mohamed, and I'm an Egyptian student. Mr. Kerolos as a teacher is far better than many others I've learned from. He encourages competitions, which greatly motivates us, and he is a well-known figure in the English teaching community.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-preview">
-                        <div class="testimonial-author">
-                            <img src="Omar Mohamad.jpg" alt="Omar Mohamad" class="author-img">
-                            <div class="author-info">
-                                <h4 class="author-name">Omar Mohamad</h4>
-                                <p class="author-location"><i class="fas fa-map-marker-alt"></i> Germany</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-excerpt">
-                            My name is Omar Mohamad, and I am a high school freshman at SCIS. Mr. Kerolos is my English teacher. I lived in Germany for about six years before moving to Egypt, and I have attended multiple schools in both countries. Out of the five schools I've been to, I have never had an English teacher as devoted and innovative as Mr. Kerolos.
-                        </div>
-                        <a class="read-more">Read More <i class="fas fa-chevron-down"></i></a>
-                    </div>
-                    <div class="testimonial-full">
-                        <div class="testimonial-full-content">
-                            My name is Omar Mohamad, and I am a high school freshman at SCIS. Mr. Kerolos is my English teacher. I lived in Germany for about six years before moving to Egypt, and I have attended multiple schools in both countries. Out of the five schools I've been to, I have never had an English teacher as devoted and innovative as Mr. Kerolos. His creative exercises and teaching methods keep us engaged and make learning both effective and memorable. Over the past two years that he has been my teacher, my English skills have improved more than they ever did elsewhere. I would like to personally thank him for his consistent dedication and effort toward his students.
-                        </div>
-                    </div>
+                <div class="testimonial-nav" id="testimonialNav">
+                    <div class="testimonial-dot active"></div>
+                    <div class="testimonial-dot"></div>
+                    <div class="testimonial-dot"></div>
+                    <div class="testimonial-dot"></div>
                 </div>
             </div>
         </section>
@@ -1808,7 +1860,7 @@ Effective communication (professional writing/presentations)
                         <div class="contact-details">
                             <h4>Working Hours</h4>
                             <p>Friday & Saturday 9 AM to 9 PM.</p>
-                            <p>Sunday to Wednesday 5 PM to 10 PM</p>
+                            <p>Sunday to Wednesday 5 PM to 10 PM</p>
                         </div>
                     </div>
                 </div>
@@ -1968,34 +2020,75 @@ Effective communication (professional writing/presentations)
                 });
             });
             
-            // Testimonials toggle functionality - Updated
-            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            // Enhanced Testimonials Navigation
+            const testimonialsTrack = document.getElementById('testimonialsTrack');
+            const testimonialDots = document.querySelectorAll('.testimonial-dot');
+            let currentTestimonialIndex = 0;
             
-            testimonialCards.forEach(card => {
-                const readMoreBtn = card.querySelector('.read-more');
-                
-                readMoreBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
+            // Update testimonial dots
+            function updateTestimonialDots(index) {
+                testimonialDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            }
+            
+            // Handle dot clicks
+            testimonialDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentTestimonialIndex = index;
+                    updateTestimonialDots(currentTestimonialIndex);
                     
-                    // Toggle active class on the card
-                    card.classList.toggle('active');
-                    
-                    // Close other open testimonials
-                    testimonialCards.forEach(otherCard => {
-                        if (otherCard !== card) {
-                            otherCard.classList.remove('active');
-                        }
+                    // Scroll to the selected testimonial
+                    const cardWidth = document.querySelector('.testimonial-card').offsetWidth;
+                    testimonialsTrack.scrollTo({
+                        left: index * (cardWidth + 20), // 20px gap
+                        behavior: 'smooth'
                     });
                 });
-                
-                // Close when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!card.contains(e.target)) {
-                        card.classList.remove('active');
-                    }
-                });
             });
+            
+            // Handle scroll events for testimonials
+            testimonialsTrack.addEventListener('scroll', () => {
+                const cardWidth = document.querySelector('.testimonial-card').offsetWidth;
+                const scrollPosition = testimonialsTrack.scrollLeft;
+                const newIndex = Math.round(scrollPosition / (cardWidth + 20));
+                
+                if (newIndex !== currentTestimonialIndex) {
+                    currentTestimonialIndex = newIndex;
+                    updateTestimonialDots(currentTestimonialIndex);
+                }
+            });
+            
+            // Auto-scroll testimonials (optional)
+            let testimonialInterval;
+            
+            function startTestimonialAutoScroll() {
+                testimonialInterval = setInterval(() => {
+                    currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialDots.length;
+                    updateTestimonialDots(currentTestimonialIndex);
+                    
+                    const cardWidth = document.querySelector('.testimonial-card').offsetWidth;
+                    testimonialsTrack.scrollTo({
+                        left: currentTestimonialIndex * (cardWidth + 20),
+                        behavior: 'smooth'
+                    });
+                }, 5000);
+            }
+            
+            function stopTestimonialAutoScroll() {
+                clearInterval(testimonialInterval);
+            }
+            
+            // Start auto-scroll when mouse leaves testimonials section
+            const testimonialsSection = document.querySelector('.testimonials-section');
+            testimonialsSection.addEventListener('mouseenter', stopTestimonialAutoScroll);
+            testimonialsSection.addEventListener('mouseleave', startTestimonialAutoScroll);
+            
+            // Initialize auto-scroll
+            startTestimonialAutoScroll();
+            
+            // Skills section - swipeable cards
+            const skillsTrack = document.getElementById('skillsTrack');
             
             // Animate elements when they come into view
             const animateOnScroll = () => {
