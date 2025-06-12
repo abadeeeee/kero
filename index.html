@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Kerolos Makram</title>
+    <meta name="description" content="Kerolos Makram - Certified English Language Educator with 8+ years of experience in creating engaging learning environments and delivering results-driven language instruction.">
+    <meta name="keywords" content="English teacher, ESL, TESOL, Egypt, Online English lessons, Language educator">
+    <meta name="author" content="Kerolos Makram">
+    <meta property="og:title" content="Kerolos Makram - English Language Educator">
+    <meta property="og:description" content="Professional English teacher with extensive experience in ESL and TESOL certification.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourwebsite.com">
+    <meta property="og:image" content="https://www.yourwebsite.com/images/profile.jpg">
+    <title>Kerolos Makram | English Language Educator | TESOL Certified</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -16,6 +24,34 @@
             --text: #333333;
             --glass: rgba(255, 255, 255, 0.15);
             --glass-border: rgba(255, 255, 255, 0.2);
+            --mobile-font-size: 18px;
+            --desktop-font-size: 16px;
+            
+            /* Dark mode variables with default light values */
+            --bg-color: #f5f7fa;
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            --card-bg: white;
+            --text-color: #333333;
+            --header-bg: transparent;
+            --footer-bg: var(--dark);
+            --footer-text: white;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-color: rgba(0, 0, 0, 0.1);
+            --hover-bg: rgba(65, 105, 225, 0.1);
+        }
+
+        /* Dark mode variables */
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --bg-gradient: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --header-bg: rgba(30, 30, 30, 0.9);
+            --footer-bg: #121212;
+            --footer-text: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --hover-bg: rgba(65, 105, 225, 0.2);
         }
 
         * {
@@ -23,13 +59,60 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            touch-action: manipulation; /* منع التكبير/التصغير غير المقصود */
         }
 
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-            color: var(--text);
+            background: var(--bg-gradient);
+            color: var(--text-color);
             min-height: 100vh;
             overflow-x: hidden;
+            font-size: var(--desktop-font-size);
+            line-height: 1.6;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* تحسينات للهاتف */
+        @media (max-width: 768px) {
+            body {
+                font-size: var(--mobile-font-size);
+            }
+            
+            /* زيادة تباعد العناصر */
+            .section {
+                margin-bottom: 40px;
+                padding: 0 15px;
+            }
+            
+            /* تحسين الأزرار */
+            .btn {
+                padding: 16px 30px;
+                min-height: 48px;
+                font-size: 1rem;
+            }
+            
+            /* تحسين القوائم */
+            .nav-link {
+                font-size: 1.1rem;
+                padding: 12px 0;
+            }
+            
+            /* إخفاء العناصر الثقيلة على الجوال */
+            .floating-elements {
+                display: none;
+            }
+            
+            /* زيادة تباعد العناصر التفاعلية */
+            .hero-btns, .about-highlights, .experience-container, 
+            .education-container, .contact-info {
+                gap: 20px;
+            }
+            
+            /* تعطيل hover effects على الجوال */
+            .highlight-item:hover, .experience-item:hover, 
+            .education-item:hover, .contact-item:hover {
+                transform: none !important;
+            }
         }
 
         /* Loader */
@@ -78,6 +161,7 @@
             position: relative;
             z-index: 10;
             padding: 10px 0;
+            transition: background-color 0.3s ease;
         }
 
         .logo {
@@ -131,7 +215,7 @@
         }
 
         .nav-link {
-            color: var(--text);
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
             font-size: 14px;
@@ -171,13 +255,13 @@
                 width: 80%;
                 max-width: 300px;
                 height: 100vh;
-                background: white;
+                background: var(--card-bg);
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 gap: 20px;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px var(--shadow-color);
+                transition: right 0.3s ease, background-color 0.3s ease;
                 z-index: 99;
             }
             
@@ -212,7 +296,7 @@
             font-weight: 700;
             line-height: 1.3;
             margin-bottom: 15px;
-            color: var(--dark);
+            color: var(--text-color);
         }
 
         .hero-title span {
@@ -234,7 +318,7 @@
 
         .hero-subtitle {
             font-size: 16px;
-            color: var(--text);
+            color: var(--text-color);
             margin-bottom: 20px;
             line-height: 1.6;
             opacity: 0.8;
@@ -280,7 +364,7 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(65, 105, 225, 0.1);
+            background: var(--hover-bg);
             transform: translateY(-3px);
         }
 
@@ -298,16 +382,12 @@
             width: 250px;
             height: 250px;
             border-radius: 20px;
-            background: white;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            background: var(--card-bg);
+            box-shadow: 0 15px 30px var(--shadow-color);
             overflow: hidden;
             position: relative;
             z-index: 2;
             transition: all 0.5s ease;
-        }
-
-        .profile-frame:hover {
-            transform: scale(1.05);
         }
 
         .profile-img {
@@ -315,14 +395,8 @@
             height: 100%;
             object-fit: cover;
             transition: all 0.5s ease;
-        }
-
-        .profile-frame:hover .profile-img {
-            transform: scale(1.1);
-        }
-
-        .shape-1, .shape-2 {
-            display: none;
+            loading="lazy";
+            alt="Kerolos Makram - English Language Educator";
         }
 
         /* About Section */
@@ -342,7 +416,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 28px;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--text-color);
             position: relative;
             display: inline-block;
         }
@@ -368,7 +442,7 @@
         .about-text {
             font-size: 14px;
             line-height: 1.7;
-            color: var(--text);
+            color: var(--text-color);
             opacity: 0.9;
             margin-bottom: 15px;
         }
@@ -381,16 +455,17 @@
         }
 
         .highlight-item {
-            background: white;
+            background: var(--card-bg);
             padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px var(--shadow-color);
             transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
         }
 
         .highlight-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px var(--shadow-color);
         }
 
         .highlight-icon {
@@ -410,27 +485,14 @@
             font-weight: 600;
             font-size: 16px;
             margin-bottom: 8px;
-            color: var(--dark);
+            color: var(--text-color);
         }
 
         .highlight-text {
             font-size: 13px;
-            color: var(--text);
+            color: var(--text-color);
             opacity: 0.8;
             line-height: 1.5;
-        }
-
-        .about-image {
-            position: relative;
-            height: 100%;
-            margin-bottom: 20px;
-        }
-
-        .about-img {
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         /* Experience Section */
@@ -441,18 +503,19 @@
         }
 
         .experience-item {
-            background: white;
+            background: var(--card-bg);
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px var(--shadow-color);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            border: 1px solid var(--border-color);
         }
 
         .experience-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px var(--shadow-color);
         }
 
         .experience-item::before {
@@ -469,7 +532,7 @@
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 8px;
-            color: var(--dark);
+            color: var(--text-color);
         }
 
         .exp-company {
@@ -486,7 +549,7 @@
 
         .exp-date {
             font-size: 13px;
-            color: var(--text);
+            color: var(--text-color);
             opacity: 0.7;
             margin-bottom: 10px;
         }
@@ -494,7 +557,7 @@
         .exp-description {
             font-size: 14px;
             line-height: 1.6;
-            color: var(--text);
+            color: var(--text-color);
             opacity: 0.9;
         }
 
@@ -506,18 +569,19 @@
         }
 
         .education-item {
-            background: white;
+            background: var(--card-bg);
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px var(--shadow-color);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            border: 1px solid var(--border-color);
         }
 
         .education-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px var(--shadow-color);
         }
 
         .education-item::before {
@@ -534,7 +598,7 @@
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 8px;
-            color: var(--dark);
+            color: var(--text-color);
         }
 
         .edu-institution {
@@ -551,7 +615,7 @@
 
         .edu-date {
             font-size: 13px;
-            color: var(--text);
+            color: var(--text-color);
             opacity: 0.7;
             margin-bottom: 10px;
         }
@@ -559,7 +623,7 @@
         .edu-description {
             font-size: 14px;
             line-height: 1.6;
-            color: var(--text);
+            color: var(--text-color);
             opacity: 0.9;
         }
 
@@ -592,20 +656,22 @@
             flex: 0 0 85%;
             max-width: 85%;
             scroll-snap-align: center;
-            background: white;
+            background: var(--card-bg);
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px var(--shadow-color);
             overflow: hidden;
             transition: all 0.3s ease;
             cursor: pointer;
             position: relative;
+            border: 1px solid var(--border-color);
         }
 
         .certification-img {
             width: 100%;
             height: 180px;
             object-fit: cover;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--border-color);
+            loading="lazy";
         }
 
         .certification-content {
@@ -616,7 +682,7 @@
             font-size: 16px;
             font-weight: 600;
             margin-bottom: 8px;
-            color: var(--dark);
+            color: var(--text-color);
         }
 
         .certification-issuer {
@@ -633,7 +699,7 @@
 
         .certification-date {
             font-size: 12px;
-            color: var(--text);
+            color: var(--text-color);
             opacity: 0.7;
         }
 
@@ -641,7 +707,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease;
-            background: #f9f9f9;
+            background: var(--bg-color);
         }
 
         .certification-details-content {
@@ -652,13 +718,14 @@
             font-size: 13px;
             line-height: 1.5;
             margin-bottom: 8px;
+            color: var(--text-color);
         }
 
         .certification-item.active .certification-details {
             max-height: 500px;
         }
 
-        /* Enhanced Skills Section - Now as swipeable cards */
+        /* Enhanced Skills Section - Now with progress bars */
         .skills-section {
             margin-bottom: 50px;
         }
@@ -687,25 +754,26 @@
             flex: 0 0 85%;
             max-width: 85%;
             scroll-snap-align: center;
-            background: white;
+            background: var(--card-bg);
             padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px var(--shadow-color);
             transition: all 0.3s ease;
             cursor: pointer;
             position: relative;
+            border: 1px solid var(--border-color);
         }
 
         .skill-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px var(--shadow-color);
         }
 
         .skill-card-title {
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 15px;
-            color: var(--dark);
+            color: var(--text-color);
             display: flex;
             align-items: center;
         }
@@ -720,9 +788,9 @@
         }
 
         .skill-list li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-size: 14px;
-            color: var(--text);
+            color: var(--text-color);
             position: relative;
             padding-left: 20px;
             line-height: 1.5;
@@ -735,6 +803,22 @@
             display: inline-block;
             width: 1em;
             margin-left: -1em;
+        }
+
+        /* New Skill Progress Bars */
+        .skill-progress-container {
+            margin-top: 10px;
+            width: 100%;
+            background-color: var(--bg-color);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress-bar {
+            height: 8px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 1s ease-in-out;
         }
 
         /* Enhanced Testimonials Section */
@@ -761,7 +845,7 @@
         }
 
         .testimonials-track::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: var(--bg-color);
             border-radius: 10px;
         }
 
@@ -774,16 +858,17 @@
             flex: 0 0 90%;
             max-width: 90%;
             scroll-snap-align: center;
-            background: white;
+            background: var(--card-bg);
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px var(--shadow-color);
             transition: all 0.3s ease;
             overflow: hidden;
             position: relative;
+            border: 1px solid var(--border-color);
         }
 
         .testimonial-card:hover {
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 25px var(--shadow-color);
         }
 
         .testimonial-content {
@@ -804,6 +889,7 @@
             object-fit: cover;
             margin-right: 15px;
             border: 3px solid var(--secondary);
+            loading="lazy";
         }
 
         .author-info {
@@ -813,7 +899,7 @@
         .author-name {
             font-weight: 600;
             margin-bottom: 5px;
-            color: var(--dark);
+            color: var(--text-color);
         }
 
         .author-location {
@@ -831,7 +917,7 @@
         .testimonial-text {
             font-size: 14px;
             line-height: 1.7;
-            color: var(--text);
+            color: var(--text-color);
             margin-bottom: 15px;
             position: relative;
         }
@@ -872,7 +958,7 @@
 
         .rating-date {
             font-size: 12px;
-            color: var(--text);
+            color: var(--text-color);
             opacity: 0.7;
         }
 
@@ -888,7 +974,7 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #ddd;
+            background: var(--border-color);
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -906,16 +992,17 @@
         }
 
         .course-item {
-            background: white;
+            background: var(--card-bg);
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px var(--shadow-color);
             transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
         }
 
         .course-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px var(--shadow-color);
         }
 
         .course-title {
@@ -928,7 +1015,7 @@
         .course-description {
             font-size: 14px;
             line-height: 1.6;
-            color: var(--text);
+            color: var(--text-color);
             margin-bottom: 15px;
         }
 
@@ -936,7 +1023,7 @@
             display: flex;
             justify-content: space-between;
             font-size: 13px;
-            color: var(--text);
+            color: var(--text-color);
             opacity: 0.8;
         }
 
@@ -973,16 +1060,17 @@
         .contact-item {
             display: flex;
             align-items: center;
-            background: white;
+            background: var(--card-bg);
             padding: 15px;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px var(--shadow-color);
             transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
         }
 
         .contact-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px var(--shadow-color);
         }
 
         .contact-icon {
@@ -1002,10 +1090,11 @@
             font-weight: 600;
             margin-bottom: 3px;
             font-size: 14px;
+            color: var(--text-color);
         }
 
         .contact-details a, .contact-details p {
-            color: var(--text);
+            color: var(--text-color);
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 13px;
@@ -1017,10 +1106,11 @@
 
         /* Footer */
         .footer {
-            background: var(--dark);
-            color: white;
+            background: var(--footer-bg);
+            color: var(--footer-text);
             padding: 40px 0 20px;
             margin-top: 60px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .footer-container {
@@ -1036,7 +1126,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 24px;
             font-weight: 700;
-            color: white;
+            color: var(--footer-text);
             margin-bottom: 15px;
             display: inline-block;
         }
@@ -1066,7 +1156,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--footer-text);
             transition: all 0.3s ease;
             font-size: 14px;
         }
@@ -1082,6 +1172,7 @@
             margin-bottom: 15px;
             position: relative;
             padding-bottom: 8px;
+            color: var(--footer-text);
         }
 
         .footer-links h3::after {
@@ -1103,7 +1194,7 @@
         }
 
         .footer-links a {
-            color: white;
+            color: var(--footer-text);
             opacity: 0.8;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -1144,7 +1235,7 @@
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 999;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 10px var(--shadow-color);
         }
 
         .back-to-top.active {
@@ -1210,6 +1301,35 @@
             50% {
                 transform: translateY(-30px) rotate(10deg);
             }
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 998;
+            box-shadow: 0 3px 10px var(--shadow-color);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px);
+        }
+
+        .theme-toggle i {
+            color: var(--text-color);
+            transition: all 0.3s ease;
         }
 
         /* Responsive Styles */
@@ -1384,6 +1504,11 @@
         <div class="floating-element"></div>
     </div>
     
+    <!-- Dark Mode Toggle -->
+    <div class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </div>
+    
     <!-- Main Container -->
     <div class="portfolio-container">
         <!-- Header -->
@@ -1422,13 +1547,11 @@
             </div>
             <div class="hero-image">
                 <div class="profile-frame">
-                    <img src="1.jpg" 
-                         alt="Kerolos Makram" 
+                    <img src="1.webp" 
+                         alt="Kerolos Makram - Professional English Teacher" 
                          class="profile-img"
                          loading="lazy">
                 </div>
-                <div class="shape-1"></div>
-                <div class="shape-2"></div>
             </div>
         </section>
         
@@ -1483,6 +1606,8 @@
                     </div>
                 </div>
                 <div class="about-image">
+                    <!-- يمكن إضافة صورة هنا إذا لزم الأمر -->
+                </div>
             </div>
         </section>
         
@@ -1570,7 +1695,7 @@ Bachelor 28th Annual Conference, 2024</h3>
             <div class="certifications-container">
                 <div class="certifications-track" id="certificationsTrack">
                     <div class="certification-item">
-                        <img src="3.Kerolos_Makram_English Proficiency Certification_page-0001.jpg" class="certification-img">
+                        <img src="3.Kerolos_Makram_English Proficiency Certification_page-0001.webp" alt="TESOL Certification" class="certification-img">
                         <div class="certification-content">
                             <h3 class="certification-title">TESOL Certification</h3>
                             <p class="certification-issuer"><i class="fas fa-award"></i>CPD</p>
@@ -1584,7 +1709,7 @@ Bachelor 28th Annual Conference, 2024</h3>
                         </div>
                     </div>
                     <div class="certification-item">
-                        <img src="tico.jpg" alt="TICO Certification" class="certification-img">
+                        <img src="tico.webp" alt="TICO Certification" class="certification-img">
                         <div class="certification-content">
                             <h3 class="certification-title"> TICO</h3>
                             <p class="certification-issuer"><i class="fas fa-award"></i>Travel Counsellor Exam</p>
@@ -1598,7 +1723,7 @@ Bachelor 28th Annual Conference, 2024</h3>
                         </div>
                     </div>
                     <div class="certification-item">
-                        <img src="Essential work skills.jpg" alt="Essential Work Skills Certificate" class="certification-img">
+                        <img src="Essential-work-skills.webp" alt="Essential Work Skills Certificate" class="certification-img">
                         <div class="certification-content">
                             <h3 class="certification-title">Essential Work Skills Certificate</h3>
                             <p class="certification-issuer"><i class="fas fa-award"></i> Learning Technology</p>
@@ -1620,7 +1745,7 @@ Effective communication (professional writing/presentations)
                         </div>
                     </div>
                     <div class="certification-item">
-                        <img src="Exploring Quality Teaching and Learning.jpg" alt="Nile TESOL Conference" class="certification-img">
+                        <img src="Exploring-Quality-Teaching-and-Learning.webp" alt="Nile TESOL Conference" class="certification-img">
                         <div class="certification-content">
                             <h3 class="certification-title">Nile TESOL 23rd Annual Conference</h3>
                             <p class="certification-issuer"><i class="fas fa-award"></i> International TEFL Academy</p>
@@ -1630,7 +1755,7 @@ Effective communication (professional writing/presentations)
                         </div>
                     </div>
                     <div class="certification-item">
-                        <img src="The Indefinable.jpg" alt="TICO Certification" class="certification-img">
+                        <img src="The-Indefinable.webp" alt="The Indefinable Poetry Collection" class="certification-img">
                         <div class="certification-content">
                             <h3 class="certification-title">The Indefinable</h3>
                             <p class="certification-issuer"><i class="fas fa-award"></i>A collection of poems in Egyptian colloquial Arabic</p>
@@ -1656,46 +1781,62 @@ Effective communication (professional writing/presentations)
                     <div class="skill-card">
                         <h3 class="skill-card-title"><i class="fas fa-chalkboard"></i> Teaching Methods</h3>
                         <ul class="skill-list">
-                            <li>Differentiated Instruction</li>
-                            <li>Project-Based Learning (PBL)</li>
-                            <li>Task-Based Learning (TBL)</li>
-                            <li>PWP Method (Pre-While-Post)</li>
-                            <li>Interactive/Student-Centered Learning</li>
-                            <li>Formative & Summative Assessment</li>
-                            <li>Flipped Classroom</li>
-                            <li>Inquiry-Based Learning</li>
-                            <li>Socratic Seminars / Literature Circles</li>
-                            <li>Use of Scaffolding and Bloom's Taxonomy</li>
+                            <li>Differentiated Instruction
+                            </li>
+                            <li>Project-Based Learning (PBL)
+                            </li>
+                            <li>Task-Based Learning (TBL)
+                                
+                            </li>
+                            <li>PWP Method (Pre-While-Post)
+                               
+                            </li>
+                            <li>Interactive/Student-Centered Learning
+                                
+                            </li>
+                            <li>Formative & Summative Assessment
+                                
+                            </li>
                         </ul>
                     </div>
                     <div class="skill-card">
                         <h3 class="skill-card-title"><i class="fas fa-language"></i> Language Teaching Skills</h3>
                         <ul class="skill-list">
-                            <li>Fluency in English (Speaking & Listening)</li>
-                            <li>Reading Comprehension Skills</li>
-                            <li>Grammar and Vocabulary Teaching</li>
-                            <li>Academic Writing and Text Analysis</li>
-                            <li>Pronunciation & Phonics Instruction</li>
-                            <li>ESL/EFL Methodology</li>
-                            <li>Multilingual Ability (Arabic & English)</li>
-                            <li>Teaching Exam Preparation (IELTS/TOEFL)</li>
-                            <li>Cultural Competence in Language Teaching</li>
-                            <li>High-Frequency Word Strategies</li>
+                            <li>Fluency in English (Speaking & Listening)
+                                
+                            </li>
+                            <li>Reading Comprehension Skills
+                                
+                            </li>
+                            <li>Grammar and Vocabulary Teaching
+                               
+                            </li>
+                            <li>Academic Writing and Text Analysis
+                               
+                            </li>
+                            <li>Pronunciation & Phonics Instruction
+                               
+                            </li>
                         </ul>
                     </div>
                     <div class="skill-card">
                         <h3 class="skill-card-title"><i class="fas fa-laptop"></i> Technical Skills</h3>
                         <ul class="skill-list">
-                            <li>Smartboard and Interactive Whiteboard Usage</li>
-                            <li>Microsoft Office Suite (Word, Excel, PowerPoint)</li>
-                            <li>Google Workspace (Docs, Slides, Forms, Classroom)</li>
-                            <li>Learning Management Systems (LMS) like Moodle, Edmodo, or Schoology</li>
-                            <li>Zoom / Microsoft Teams / Google Meet for Online Instruction</li>
-                            <li>Digital Assessment Tools (Kahoot, Quizizz, Socrative)</li>
-                            <li>Slide Design for Instructional Content</li>
-                            <li>Audio/Video Editing for Educational Content</li>
-                            <li>Basic Troubleshooting & Classroom Tech Setup</li>
-                            <li>Online Exam Proctoring Tools</li>
+                            <li>Smartboard and Interactive Whiteboard Usage
+                               
+                            </li>
+                            <li>Microsoft Office Suite (Word, Excel, PowerPoint)
+                               
+                            </li>
+                            <li>Google Workspace (Docs, Slides, Forms, Classroom)
+                                
+                            </li>
+                            <li>Learning Management Systems (LMS)
+                                
+                            </li>
+                            <li>Zoom / Microsoft Teams / Google Meet
+                              
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -1712,7 +1853,7 @@ Effective communication (professional writing/presentations)
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <div class="testimonial-author">
-                                <img src="Emma Gardella.jpg" alt="Emma Gardella" class="author-img">
+                                <img src="Emma-Gardella.webp" alt="Emma Gardella - Student" class="author-img">
                                 <div class="author-info">
                                     <h4 class="author-name">Emma Gardella</h4>
                                     <p class="author-location"><i class="fas fa-map-marker-alt"></i> Italy</p>
@@ -1737,7 +1878,7 @@ Effective communication (professional writing/presentations)
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <div class="testimonial-author">
-                                <img src="Patrick Jean.jpg" alt="Patrick Jean" class="author-img">
+                                <img src="Patrick-Jean.webp" alt="Patrick Jean - Student" class="author-img">
                                 <div class="author-info">
                                     <h4 class="author-name">Patrick Jean</h4>
                                     <p class="author-location"><i class="fas fa-map-marker-alt"></i> Canada</p>
@@ -1762,7 +1903,7 @@ Effective communication (professional writing/presentations)
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <div class="testimonial-author">
-                                <img src="Mohamed.jpg" alt="Mohamed" class="author-img">
+                                <img src="Mohamed.webp" alt="Mohamed - Student" class="author-img">
                                 <div class="author-info">
                                     <h4 class="author-name">Mohamed</h4>
                                     <p class="author-location"><i class="fas fa-map-marker-alt"></i> Egypt</p>
@@ -1787,7 +1928,7 @@ Effective communication (professional writing/presentations)
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <div class="testimonial-author">
-                                <img src="Omar Mohamad.jpg" alt="Omar Mohamad" class="author-img">
+                                <img src="Omar-Mohamad.webp" alt="Omar Mohamad - Student" class="author-img">
                                 <div class="author-info">
                                     <h4 class="author-name">Omar Mohamad</h4>
                                     <p class="author-location"><i class="fas fa-map-marker-alt"></i> Germany</p>
@@ -1877,9 +2018,9 @@ Effective communication (professional writing/presentations)
                     Professional English Language Educator dedicated to helping students achieve their language goals through innovative teaching methods and personalized instruction.
                 </p>
                 <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/%CE%BAerolos-makram-545024189/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.facebook.com/kerolos.makram.589343" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://wa.me/201227054309" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/%CE%BAerolos-makram-545024189/" class="social-link" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/kerolos.makram.589343" class="social-link" aria-label="Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/201227054309" class="social-link" aria-label="WhatsApp Contact"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-links">
@@ -1896,12 +2037,12 @@ Effective communication (professional writing/presentations)
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Kerolos Makram. All Rights Reserved.</p>
+            <p>&copy; <span id="currentYear"></span> Kerolos Makram. All Rights Reserved.</p>
         </div>
     </footer>
     
     <!-- Back to Top Button -->
-    <div class="back-to-top">
+    <div class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </div>
     
@@ -1915,6 +2056,9 @@ Effective communication (professional writing/presentations)
                     loader.style.display = 'none';
                 }, 500);
             }, 1000);
+            
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
             
             // Mobile menu toggle
             const menuToggle = document.querySelector('.menu-toggle');
@@ -2087,39 +2231,60 @@ Effective communication (professional writing/presentations)
             // Initialize auto-scroll
             startTestimonialAutoScroll();
             
-            // Skills section - swipeable cards
-            const skillsTrack = document.getElementById('skillsTrack');
-            
-            // Animate elements when they come into view
-            const animateOnScroll = () => {
-                const elements = document.querySelectorAll('.section, .skill-progress');
+            // Animate skill progress bars when they come into view
+            const animateSkillBars = () => {
+                const skillBars = document.querySelectorAll('.skill-progress-bar');
                 
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
+                skillBars.forEach(bar => {
+                    const barPosition = bar.getBoundingClientRect().top;
                     const screenPosition = window.innerHeight / 1.3;
                     
-                    if (elementPosition < screenPosition) {
-                        if (element.classList.contains('skill-progress')) {
-                            // For skill bars, animate their width
-                            const width = element.getAttribute('data-width') || element.style.width;
-                            element.style.width = '0';
-                            setTimeout(() => {
-                                element.style.width = width;
-                            }, 100);
-                        } else {
-                            // For sections, fade them in
-                            element.style.opacity = '1';
-                            element.style.transform = 'translateY(0)';
-                        }
+                    if (barPosition < screenPosition) {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
                     }
                 });
             };
             
             // Initial animation check
-            animateOnScroll();
+            animateSkillBars();
             
             // Check on scroll
-            window.addEventListener('scroll', animateOnScroll);
+            window.addEventListener('scroll', animateSkillBars);
+            
+            // Dark Mode Toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('i');
+            
+            // Check for saved theme preference or use preferred color scheme
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+            
+            // Toggle theme
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                
+                if (currentTheme === 'dark') {
+                    document.documentElement.removeAttribute('data-theme');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
         });
     </script>
 </body>
