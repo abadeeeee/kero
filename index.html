@@ -115,15 +115,16 @@
             }
         }
 
-        /* Loader */
+        /* Loader - Updated for Dark Mode */
         #loader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--light);
+            background: var(--dark);
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 9999;
@@ -137,11 +138,38 @@
             border-radius: 50%;
             border-top-color: var(--primary);
             border-bottom-color: var(--secondary);
-            animation: spin 1.5s linear infinite;
+            animation: spin 0.3s linear infinite;
+        }
+
+        .loading-text {
+            color: var(--light);
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.8;
         }
 
         @keyframes spin {
             to { transform: rotate(360deg); }
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 0%;
+            transition: width 0.1s ease-out;
+            border-radius: 0 2px 2px 0;
         }
 
         /* Main Container */
@@ -186,6 +214,7 @@
             height: 21px;
             cursor: pointer;
             z-index: 100;
+            transition: transform 0.3s ease;
         }
 
         .menu-toggle span {
@@ -212,6 +241,7 @@
         .nav-links {
             display: flex;
             gap: 20px;
+            transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .nav-link {
@@ -259,10 +289,10 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                gap: 20px;
+                gap: 25px;
                 box-shadow: -5px 0 15px var(--shadow-color);
-                transition: right 0.3s ease, background-color 0.3s ease;
                 z-index: 99;
+                padding: 20px;
             }
             
             .nav-links.active {
@@ -271,7 +301,16 @@
             
             .nav-link {
                 font-size: 16px;
-                padding: 8px 0;
+                padding: 10px 15px;
+                border-radius: 8px;
+                width: 100%;
+                text-align: center;
+                transition: all 0.3s ease, transform 0.2s ease;
+            }
+            
+            .nav-link:hover {
+                background: var(--hover-bg);
+                transform: translateX(-5px);
             }
         }
 
@@ -344,6 +383,8 @@
             text-decoration: none;
             text-align: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
@@ -355,6 +396,22 @@
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(65, 105, 225, 0.4);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-primary:hover::after {
+            opacity: 1;
         }
 
         .btn-secondary {
@@ -1216,7 +1273,7 @@
             opacity: 0.7;
         }
 
-        /* Back to Top Button */
+        /* Back to Top Button - Enhanced */
         .back-to-top {
             position: fixed;
             bottom: 20px;
@@ -1236,16 +1293,18 @@
             transition: all 0.3s ease;
             z-index: 999;
             box-shadow: 0 3px 10px var(--shadow-color);
+            transform: translateY(20px);
         }
 
         .back-to-top.active {
             opacity: 1;
             visibility: visible;
+            transform: translateY(0);
         }
 
         .back-to-top:hover {
             background: var(--secondary);
-            transform: translateY(-5px);
+            transform: translateY(-3px) scale(1.1);
         }
 
         /* Floating Elements */
@@ -1321,10 +1380,17 @@
             box-shadow: 0 3px 10px var(--shadow-color);
             transition: all 0.3s ease;
             border: 1px solid var(--border-color);
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .theme-toggle.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .theme-toggle:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.1);
         }
 
         .theme-toggle i {
@@ -1492,9 +1558,15 @@
     </style>
 </head>
 <body>
-    <!-- Loader -->
+    <!-- Loader - Updated -->
     <div id="loader">
         <div class="spinner"></div>
+        <div class="loading-text">Loading ...</div>
+    </div>
+    
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
     </div>
     
     <!-- Floating Background Elements -->
@@ -2085,7 +2157,7 @@ Effective communication (professional writing/presentations)
                 });
             });
             
-            // Show/hide back to top button
+            // Show/hide back to top button with smooth animation
             const backToTop = document.querySelector('.back-to-top');
             window.addEventListener('scroll', () => {
                 if (window.pageYOffset > 300) {
@@ -2112,7 +2184,7 @@ Effective communication (professional writing/presentations)
                 });
             });
             
-            // Back to top functionality
+            // Back to top functionality with smooth animation
             backToTop.addEventListener('click', () => {
                 window.scrollTo({
                     top: 0,
@@ -2231,29 +2303,14 @@ Effective communication (professional writing/presentations)
             // Initialize auto-scroll
             startTestimonialAutoScroll();
             
-            // Animate skill progress bars when they come into view
-            const animateSkillBars = () => {
-                const skillBars = document.querySelectorAll('.skill-progress-bar');
-                
-                skillBars.forEach(bar => {
-                    const barPosition = bar.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.3;
-                    
-                    if (barPosition < screenPosition) {
-                        const width = bar.style.width;
-                        bar.style.width = '0';
-                        setTimeout(() => {
-                            bar.style.width = width;
-                        }, 100);
-                    }
-                });
-            };
-            
-            // Initial animation check
-            animateSkillBars();
-            
-            // Check on scroll
-            window.addEventListener('scroll', animateSkillBars);
+            // Scroll progress bar
+            const progressBar = document.getElementById('progressBar');
+            window.addEventListener('scroll', () => {
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollProgress = (scrollTop / scrollHeight) * 100;
+                progressBar.style.width = scrollProgress + '%';
+            });
             
             // Dark Mode Toggle
             const themeToggle = document.getElementById('themeToggle');
@@ -2268,6 +2325,11 @@ Effective communication (professional writing/presentations)
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
             }
+            
+            // Show theme toggle after page loads
+            setTimeout(() => {
+                themeToggle.classList.add('active');
+            }, 1500);
             
             // Toggle theme
             themeToggle.addEventListener('click', () => {
